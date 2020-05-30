@@ -1,6 +1,6 @@
 #!/bin/sh
 cd ~
-sudo apt install i3 emacs stow wget curl zsh
+sudo apt install emacs stow wget curl zsh
 sudo apt-get install \
   cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev \
   libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
@@ -8,10 +8,22 @@ sudo apt-get install \
   xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev \
   libiw-dev libcurl4-openssl-dev libpulse-dev \
   libxcb-composite0-dev xcb libxcb-ewmh2
+
+cd
+git clone https://github.com/plexus/chemacs.git
+cd chemacs
+./install.sh
+cd 
+
+sudo add-apt-repository ppa:kgilmer/speed-ricer
+sudo apt-get update
+sudo apt-get install i3-gaps
+
 git clone https://github.com/jaagr/polybar.git
 cd polybar
 ./build.sh
 cd
+
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
