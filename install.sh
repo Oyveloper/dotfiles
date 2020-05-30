@@ -1,6 +1,6 @@
 #!/bin/sh
 cd 
-sudo apt install emacs stow wget curl zsh nitrogen pavucontrol compton 
+sudo apt install emacs stow wget curl zsh nitrogen pavucontrol compton rofi
 
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
