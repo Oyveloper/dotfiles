@@ -1,0 +1,8 @@
+[user]
+	email = yvind.monsen@gmail.com
+	name = Øyvind Monsen
+	signingkey = 7L
+[credential]
+	helper = store
+[color]
+	ui = true

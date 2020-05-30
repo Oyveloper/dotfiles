@@ -1,0 +1,213 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+bar-background = #000f0f0f
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/oyv]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 42
+radius = 0.0
+
+border-top-size = 10
+border-right-size = 15
+border-left-size = 15
+bottom = false
+;padding = 5
+fixed-center = true
+;module-margin = 2
+;separator = "    "
+
+wm-restack = i3
+enable-ipc = true
+
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+
+font-0 = scientifica
+font-1 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=false;3
+font-2 = FontAwesome5Brands:style=Soldi:pixelsize=10:antialias=false;3
+
+modules-left = workspaces
+modules-center= time
+modules-right = bluetooth audio-select pulseaudio wireless-network memory cpu
+
+
+
+;--------------------------------------------
+; modules                                   ;
+;--------------------------------------------
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+format-background = ${colors.background}
+format-underline = #4bffdc
+format-padding = 2
+label = %percentage_used%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+;format-prefix = " "
+format = <label> <ramp-load>
+format-background = ${colors.background}
+format-underline = #4bffdc
+format-padding = 2
+label = CPU %percentage%%
+
+ramp-load-spacing = 1
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage%%
+label-volume-background = ${colors.background}
+label-volume-padding = 1
+label-muted = 
+label-muted-foreground = ${colors.foreground}
+label-muted-background = ${colors.background}
+label-muted-padding = 1
+use-ui-max = false
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-background = ${colors.background}
+ramp-volume-padding = 1
+
+[module/audio-select]
+type = custom/script
+format  = <label>
+tail = false
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = ""
+format-padding = 2
+click-left = pavucontrol &
+exec = echo "hello"
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[module/time]
+type     = internal/date
+interval = 1.0
+time     = "%H:%M"
+timezone = "Europe/Oslo"
+label    = "%time%"
+
+format         = <label>
+format-padding = 0
+
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label-padding    = 4
+margin-top = 5
+margin-bottom = 5
+
+[module/bluetooth]
+type = custom/script
+format = <label>
+tail = false
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = ""
+format-padding = 2
+click-left = bluetooth-wizard &
+exec = echo "noe"
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+label-connected = %essid%
+
+format-connected = %{A1:nm-connection-editor &:} <label-connected> %{A}
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.background}
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.foreground}
+format-connected-prefix-background = ${colors.background}
+
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground}
+label-disconnected-background = ${colors.background}
+
+
+
+[module/workspaces]
+
+type            = internal/i3
+format          = <label-state> <label-mode>
+index-sort      = true
+wrapping-scroll = false
+strip-wsnumbers = true
+
+label-mode-background = ${xrdb:color0}
+label-mode-foreground = ${xrdb:color7}
+label-mode-padding    = 3
+
+label-focused            = %index%
+label-focused-background = ${xrdb:color4}
+label-focused-foreground = ${xrdb:color15}
+label-focused-padding    = 3
+
+label-unfocused            = %index%
+label-unfocused-background = ${xrdb:color0}
+label-unfocused-foreground = ${xrdb:color15}
+label-unfocused-padding    = 3
+
+label-visible            = %index%
+label-visible-background = ${xrdb:color0}
+label-visible-foreground = ${xrdb:color7}
+label-visible-padding    = 3
+
+label-urgent            = %index%
+label-urgent-background = ${xrdb:color0}
+label-urgent-foreground = ${xrdb:color1}
+label-urgent-padding    = 3
+
+pin-workspaces = true
