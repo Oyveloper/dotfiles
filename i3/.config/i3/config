@@ -214,4 +214,4 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton -b
 
 # Initialize polybar
-exec_always --no-startup-id ~/start_polybar.sh
+exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
