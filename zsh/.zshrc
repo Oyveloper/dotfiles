@@ -73,7 +73,7 @@ plugins=(
 	zsh-autosuggestions
 	pip
 	zsh-syntax-highlighting
-	autoenv
+	#autoenv
 	docker
 	python
 	themes
