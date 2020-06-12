@@ -198,9 +198,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $bose toggle # mu
 # Screenshots
 bindsym --release $mod+Down exec "$(import png:- | xclip -selection clipboard -t image/png)"
 
-
-
-
+# Lock the screen
+bindsym $mod+Control+l exec dm-tool lock
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
