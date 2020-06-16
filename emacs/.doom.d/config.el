@@ -1,5 +1,3 @@
-(evilem-default-keybindings "ø")
-
 (package-initialize)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -36,18 +34,22 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(use-package yasnippet
-  :ensure t
-  :config
-  (use-package yasnippet-snippets
-    :ensure t
-    )
-  (yas-reload-all))
+     (use-package popup-kill-ring
+       :ensure t
+       :bind ("M-p" . popup-kill-ring))
 
-(add-hook 'python-mode-hook 'yas-minor-mode)
-(add-hook 'js-mode-hook 'yas-minor-mode)
-(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-(add-hook 'org-mode-hook 'yas-minor-mode)
+  (use-package yasnippet
+    :ensure t
+    :config
+    (use-package yasnippet-snippets
+      :ensure t
+      )
+    (yas-reload-all))
+
+  (add-hook 'python-mode-hook 'yas-minor-mode)
+  (add-hook 'js-mode-hook 'yas-minor-mode)
+  (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+  (add-hook 'org-mode-hook 'yas-minor-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -82,11 +84,28 @@
             ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
             ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))))
 
+    (defun split-and-follow-horizontally ()
+      (interactive)
+      (split-window-below)
+      (balance-windows)
+      (other-window 1))
+    (defun split-and-follow-vertically ()
+      (interactive)
+      (split-window-right)
+      (balance-windows)
+      (other-window 1))
+
+(map!
+ :leader
+ (:prefix "w"
+  :desc "split vertical and follow" "v" #'split-and-follow-vertically
+  :desc "split horizontal and follow" "s" #'split-and-follow-horizontally))
+
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
 
-(global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
+  (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
@@ -114,3 +133,5 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+
+(evilem-default-keybindings "ø")
