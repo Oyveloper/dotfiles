@@ -24,7 +24,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Consolas Regular" :size 11))
+(setq doom-font (font-spec :family "Consolas" :size 11))
 #+end_src
 
 * Avy
@@ -66,6 +66,13 @@
        :ensure t
        :bind ("M-p" . popup-kill-ring))
    #+end_src
+** Wrap quotes
+#+begin_src emacs-lisp
+(global-set-key (kbd "M-\"") 'insert-pair)
+(global-set-key (kbd "M-\'") 'insert-pair)
+#+end_src
+
+
 * Yasnippet
 #+begin_src emacs-lisp
   (use-package yasnippet

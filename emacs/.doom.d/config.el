@@ -16,7 +16,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Consolas Regular" :size 11))
+(setq doom-font (font-spec :family "Consolas" :size 11))
 
 (use-package avy
   :ensure t)
@@ -37,6 +37,9 @@
      (use-package popup-kill-ring
        :ensure t
        :bind ("M-p" . popup-kill-ring))
+
+(global-set-key (kbd "M-\"") 'insert-pair)
+(global-set-key (kbd "M-\'") 'insert-pair)
 
   (use-package yasnippet
     :ensure t
