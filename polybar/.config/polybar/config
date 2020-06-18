@@ -50,9 +50,10 @@ background = ${colors.bar-background}
 foreground = ${colors.foreground}
 
 
+
 font-0 = scientifica
-font-1 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=false;3
-font-2 = FontAwesome5Brands:style=Soldi:pixelsize=10:antialias=false;3
+font-1 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=true;3
+font-2 = FontAwesome5Brands:style=Soldi:pixelsize=10:antialias=true;3
 
 modules-left = workspaces
 modules-center= time
