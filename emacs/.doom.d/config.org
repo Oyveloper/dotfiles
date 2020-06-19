@@ -24,7 +24,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Source Code Pro" :size 14))
+(setq doom-font (font-spec :family "Consolas" :size 11))
 #+end_src
 
 * Avy
@@ -60,6 +60,19 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 #+end_src
+** Killring popup
+   #+begin_src emacs-lisp
+     (use-package popup-kill-ring
+       :ensure t
+       :bind ("M-p" . popup-kill-ring))
+   #+end_src
+** Wrap quotes
+#+begin_src emacs-lisp
+(global-set-key (kbd "M-\"") 'insert-pair)
+(global-set-key (kbd "M-\'") 'insert-pair)
+#+end_src
+
+
 * Yasnippet
 #+begin_src emacs-lisp
   (use-package yasnippet
@@ -119,7 +132,30 @@
             ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))))
 #+end_src
 
+* Window management
+** Cursor following when splitting the window
+#+begin_src emacs-lisp
+    (defun split-and-follow-horizontally ()
+      (interactive)
+      (split-window-below)
+      (balance-windows)
+      (other-window 1))
+    (defun split-and-follow-vertically ()
+      (interactive)
+      (split-window-right)
+      (balance-windows)
+      (other-window 1))
 
+(map!
+ :leader
+ (:prefix "w"
+  :desc "split vertical and follow" "v" #'split-and-follow-vertically
+  :desc "split horizontal and follow" "s" #'split-and-follow-horizontally))
+
+#+end_src
+
+#+RESULTS:
+: split-and-follow-vertically
 * Company
 #+begin_src emacs-lisp
 (setq company-idle-delay 0)

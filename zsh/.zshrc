@@ -110,3 +110,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/home/oyvind/utils
 source /home/oyvind/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export EVENT_DB_PWD=eventpassord
+
+export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
