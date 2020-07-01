@@ -6,3 +6,5 @@
 	helper = store
 [color]
 	ui = true
+[core]
+	editor = vim

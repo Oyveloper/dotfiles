@@ -71,7 +71,6 @@
 (global-set-key (kbd "M-\"") 'insert-pair)
 (global-set-key (kbd "M-\'") 'insert-pair)
 #+end_src
-
 * Flutter
 #+begin_src emacs-lisp
 (use-package dart-mode
@@ -99,7 +98,8 @@
     (use-package yasnippet-snippets
       :ensure t
       )
-    (yas-reload-all))
+    (yas-reload-all)
+    (setq yas-also-auto-indent-first-line t))
 
   (add-hook 'python-mode-hook 'yas-minor-mode)
   (add-hook 'js-mode-hook 'yas-minor-mode)
@@ -174,16 +174,55 @@
 
 #+RESULTS:
 : split-and-follow-vertically
+** ace other window shortcut
+#+begin_src emacs-lisp
+(map!
+ :leader
+ (:prefix "w"
+  :desc "ace-other-window" "w" #'ace-window))
+#+end_src
+
 * Company
 #+begin_src emacs-lisp
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
 #+end_src
+* Lsp
+** LSP-ui
+#+begin_src emacs-lisp
+(use-package lsp-ui
+  :ensure t)
+#+end_src
+* Flycheck
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+#+end_src
+
 * Homeassistant
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 #+end_src
+* Javascript
+** JSDoc
+#+begin_src emacs-lisp
+(use-package js-doc
+  :ensure t)
+(map!
+ :leader
+ (:prefix "j"
+  :desc "Insert javadoc template" "d" #'js-doc-insert-function-doc-snippet))
+#+end_src
+** Auto beautify
+#+begin_src emacs-lisp
+(use-package js-auto-beautify
+  :ensure t
+  :hook js2-mode-hook)
+#+end_src
+
+
 * Misc not yet handeled
 #+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
