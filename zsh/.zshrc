@@ -114,3 +114,6 @@ export EVENT_DB_PWD=eventpassord
 export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 
+export PATH="$HOME/.pub-cache/bin:$PATH"
+export PATH="$HOME/flutter/bin/cache/dart-sdk/bin:$PATH"
+export PATH="$HOME/flutter/bin:$PATH"
