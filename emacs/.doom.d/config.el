@@ -47,7 +47,8 @@
     (use-package yasnippet-snippets
       :ensure t
       )
-    (yas-reload-all))
+    (yas-reload-all)
+    (setq yas-also-auto-indent-first-line t))
 
   (add-hook 'python-mode-hook 'yas-minor-mode)
   (add-hook 'js-mode-hook 'yas-minor-mode)
@@ -104,11 +105,34 @@
   :desc "split vertical and follow" "v" #'split-and-follow-vertically
   :desc "split horizontal and follow" "s" #'split-and-follow-horizontally))
 
+(map!
+ :leader
+ (:prefix "w"
+  :desc "ace-other-window" "w" #'ace-window))
+
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
 
+(use-package lsp-ui
+  :ensure t)
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
   (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
+
+(use-package js-doc
+  :ensure t)
+(map!
+ :leader
+ (:prefix "j"
+  :desc "Insert javadoc template" "d" #'js-doc-insert-function-doc-snippet))
+
+(use-package js-auto-beautify
+  :ensure t
+  :hook js2-mode-hook)
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
