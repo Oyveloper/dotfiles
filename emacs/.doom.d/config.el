@@ -117,9 +117,17 @@
 (use-package lsp-ui
   :ensure t)
 
+(map!
+ :leader
+ (:prefix "c"
+  :desc "Jump to implementation" "i" #'tide-jump-to-implementation))
+
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
+
+(use-package flycheck-tcl
+  :ensure t)
 
   (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 

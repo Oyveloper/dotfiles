@@ -176,11 +176,23 @@
 (use-package lsp-ui
   :ensure t)
 #+end_src
+** Jump to implementation
+#+begin_src emacs-lisp
+(map!
+ :leader
+ (:prefix "c"
+  :desc "Jump to implementation" "i" #'tide-jump-to-implementation))
+#+end_src
+
+
 * Flycheck
 #+begin_src emacs-lisp
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
+
+(use-package flycheck-tcl
+  :ensure t)
 #+end_src
 
 * Homeassistant
