@@ -157,7 +157,7 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = ""
 format-padding = 2
-click-left = bluetooth-wizard &
+click-left = blueman-manager &
 exec = echo "noe"
 
 [module/wireless-network]
