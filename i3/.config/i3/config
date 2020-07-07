@@ -68,7 +68,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Control+h split h
+bindsym $mod+Mod1+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -120,6 +120,9 @@ bindsym $mod+0 workspace $ws10
 
 bindsym $mod+Right workspace next
 bindsym $mod+Left workspace prev
+
+bindsym $mod+Control+l workspace next
+bindsym $mod+Control+h workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -214,7 +217,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $bose toggle # mu
 bindsym --release $mod+Down exec "$(import png:- | xclip -selection clipboard -t image/png)"
 
 # Lock the screen
-bindsym $mod+Control+l exec dm-tool lock
+bindsym $mod+Mod1+l exec dm-tool lock
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -228,7 +231,7 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id ~/.config/start_compton.sh
 
 #flash focus
-exec_always --no-startup-id flashfocus --flash-opacity 0.8 --default-opacity 0.96 --flash-lone-windows never -t 200
+exec_always --no-startup-id flashfocus --flash-opacity 0.8 --flash-lone-windows never -t 200
 
 # Initialize polybar
 exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
