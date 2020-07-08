@@ -16,7 +16,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Consolas" :size 11))
+(setq doom-font (font-spec :family "Consolas" :size 14))
 
 (use-package avy
   :ensure t)
@@ -40,6 +40,23 @@
 
 (global-set-key (kbd "M-\"") 'insert-pair)
 (global-set-key (kbd "M-\'") 'insert-pair)
+
+(use-package dart-mode
+  ;; Optional
+  :hook (dart-mode . flutter-test-mode))
+
+(use-package flutter
+  :after dart-mode
+  :bind (:map dart-mode-map
+              ("C-M-x" . #'flutter-run-or-hot-reload))
+  :custom
+  (flutter-sdk-path "/Users/oyvind/flutter/"))
+
+;; Optional
+(use-package flutter-l10n-flycheck
+  :after flutter
+  :config
+  (flutter-l10n-flycheck-setup))
 
   (use-package yasnippet
     :ensure t
@@ -110,7 +127,7 @@
  (:prefix "w"
   :desc "ace-other-window" "w" #'ace-window))
 
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
 
@@ -122,6 +139,9 @@
  (:prefix "c"
   :desc "Jump to implementation" "i" #'tide-jump-to-implementation))
 
+(use-package css-autoprefixer
+  :ensure  t)
+
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
@@ -131,12 +151,21 @@
 
   (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 
+(defun insert-jsdoc-type-annotation ()
+  (interactive)
+  (beginning-of-line)
+  (newline-and-indent)
+  (previous-line)
+  (yas-expand-snippet (yas-lookup-snippet "type-inline-comment"))
+  )
+
 (use-package js-doc
   :ensure t)
 (map!
  :leader
  (:prefix "j"
-  :desc "Insert javadoc template" "d" #'js-doc-insert-function-doc-snippet))
+  :desc "Insert jsdoc template" "d" #'js-doc-insert-function-doc-snippet
+  :desc "Insert jsdoc typeannotation" "t" #'insert-jsdoc-type-annotation))
 
 (use-package js-auto-beautify
   :ensure t

@@ -184,7 +184,7 @@
 
 * Company
 #+begin_src emacs-lisp
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
 #+end_src
@@ -202,6 +202,15 @@
   :desc "Jump to implementation" "i" #'tide-jump-to-implementation))
 #+end_src
 
+* Web
+
+** Css
+#+begin_src emacs-lisp
+(use-package css-autoprefixer
+  :ensure  t)
+#+end_src
+
+#+RESULTS:
 
 * Flycheck
 #+begin_src emacs-lisp
@@ -220,12 +229,22 @@
 * Javascript
 ** JSDoc
 #+begin_src emacs-lisp
+
+(defun insert-jsdoc-type-annotation ()
+  (interactive)
+  (beginning-of-line)
+  (newline-and-indent)
+  (previous-line)
+  (yas-expand-snippet (yas-lookup-snippet "type-inline-comment"))
+  )
+
 (use-package js-doc
   :ensure t)
 (map!
  :leader
  (:prefix "j"
-  :desc "Insert javadoc template" "d" #'js-doc-insert-function-doc-snippet))
+  :desc "Insert jsdoc template" "d" #'js-doc-insert-function-doc-snippet
+  :desc "Insert jsdoc typeannotation" "t" #'insert-jsdoc-type-annotation))
 #+end_src
 ** Auto beautify
 #+begin_src emacs-lisp
