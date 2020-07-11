@@ -184,15 +184,42 @@
 
 * Company
 #+begin_src emacs-lisp
-(setq company-idle-delay 0.2)
-(setq company-minimum-prefix-length 2)
-(setq company-show-numbers t)
+(use-package company
+  :config
+  (setq
+   company-idle-delay 0.2
+   company-minimum-prefix-length 1
+   company-show-numbers t))
 #+end_src
 * Lsp
+#+begin_src emacs-lisp
+(use-package lsp-mode
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-enable-snippet nil
+        lsp-eldoc-enable-hover nil
+        lsp-prefer-capf t
+        lsp-idle-dalay 0.0)
+  :hook(
+        (python-mode . lsp)
+        ;; (js-mode . lsp)
+        ;; (js2-mode . lsp)
+        (java-mode . lsp)
+        ;; (rjsx-mode . lsp)
+        (html-mode . lsp)
+        (web-mode . lsp)
+        (emacs-lisp-mode . lsp)))
+#+end_src
+
 ** LSP-ui
 #+begin_src emacs-lisp
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-ui-doc-enable nil
+        lsp-ui-sideline-enable nil
+        lsp-ui-flycheck-enable t))
 #+end_src
 ** Jump to implementation
 #+begin_src emacs-lisp
@@ -250,8 +277,45 @@
 #+begin_src emacs-lisp
 (use-package js-auto-beautify
   :ensure t
-  :hook js2-mode-hook)
+  :hook rjsx-mode-hook)
 #+end_src
+** Rjsx mode
+#+begin_src emacs-lisp
+(use-package rjsx-mode
+  :ensure t
+  :mode ("\\.js\\'"))
+#+end_src
+
+** Tide
+#+begin_src emacs-lisp
+(defun setup-tide-mode()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq tide-hl-identifier-mode +1)
+  (eldoc-mode +1)
+  (company-mode +1))
+
+(add-to-list 'company-backends '(company-tide company-dabbrev))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(use-package tide
+  :ensure t
+  :after (rjsx-mode company flycheck)
+  :hook (rjsx-mode . setup-tide-mode))
+#+end_src
+
+#+RESULTS:
+| doom--setq-emmet-expand-jsx-className?-for-rjsx-mode-h | setup-tide-mode | emmet-mode |
+
+** Prettier?
 
 
 * Misc not yet handeled
