@@ -187,6 +187,9 @@
 (setq company-idle-delay 0.2)
 (setq company-minimum-prefix-length 2)
 (setq company-show-numbers t)
+
+(add-to-list 'company-backends 'company-capf)
+(add-to-list 'company-backends 'company-dabbrev)
 #+end_src
 * Lsp
 ** LSP-ui
