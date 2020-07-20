@@ -41,6 +41,8 @@
 (global-set-key (kbd "M-\"") 'insert-pair)
 (global-set-key (kbd "M-\'") 'insert-pair)
 
+  (setq rainbow-delimiters-max-face-count 9)
+
 (use-package dart-mode
   ;; Optional
   :hook (dart-mode . flutter-test-mode))
@@ -138,7 +140,10 @@
    ))
 
 (use-package company-box
-  :ensure t
+  :config
+  (setq
+   company-box-icons-alist 'company-box-icons-all-the-icons
+   window-resize-pixelwize nil)
   :hook (company-mode . company-box-mode))
 
 (use-package lsp
@@ -155,13 +160,28 @@
    company-lsp-filter-candidates t))
 (use-package company-lsp
   :config
-  (push 'company-lsp company-backends)
+  (setq company-backends '(company-lsp))
+  ;; (push 'company-lsp company-backends)
   (setq company-transformers '(company-sort-by-backend-importance)
-	company-lsp-async t
-	company-lsp-cache-candidates nil))
+        company-lsp-async t
+        company-lsp-cache-candidates nil))
 
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :custom
+    ;; lsp-ui-doc
+    (lsp-ui-doc-enable nil)
+    (lsp-ui-doc-header nil)
+    (lsp-ui-doc-include-signature nil)
+    (lsp-ui-doc-position 'at-point) ;; top, bottom, or at-point
+    (lsp-ui-doc-max-width 120)
+    (lsp-ui-doc-max-height 30)
+    (lsp-ui-doc-use-childframe t)
+    (lsp-ui-doc-use-webkit nil)
+  :config
+  (global-set-key (kbd "M-RET") #'lsp-ui-sideline-apply-code-actions)
+  :hook
+  (lsp-ui-mode . lsp-ui-doc-mode))
 
 (map!
  :leader
