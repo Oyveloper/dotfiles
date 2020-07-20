@@ -184,11 +184,33 @@
 
 * Company
 #+begin_src emacs-lisp
-(setq company-idle-delay 0.2)
-(setq company-minimum-prefix-length 2)
-(setq company-show-numbers t)
+
+(use-package company
+  :config
+  (setq
+   company-idle-delay 0.2
+   company-minimum-prefix-length 1
+   company-show-numbers t
+   company-require-match 'never
+   company-selection-wrap-around t
+   ))
 #+end_src
 * Lsp
+#+begin_src emacs-lisp
+(use-package lsp
+  :hook
+  (js2-mode . lsp)
+  (java-mode . lsp)
+  (lsp . company-mode))
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends)
+  (setq company-transformers '(company-sort-by-backend-importance)
+	company-lsp-async t
+	company-lsp-cache-candidates nil))
+
+#+end_src
+
 ** LSP-ui
 #+begin_src emacs-lisp
 (use-package lsp-ui
@@ -252,6 +274,11 @@
   :ensure t
   :hook js2-mode-hook)
 #+end_src
+* Java
+#+begin_src emacs-lisp
+(use-package lsp-java
+  :ensure t)
+#+end_src
 
 
 * Misc not yet handeled
@@ -283,6 +310,3 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 #+end_src
-
-#+RESULTS:
-: yvind.monsen@gmail.com

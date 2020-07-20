@@ -127,9 +127,27 @@
  (:prefix "w"
   :desc "ace-other-window" "w" #'ace-window))
 
-(setq company-idle-delay 0.2)
-(setq company-minimum-prefix-length 2)
-(setq company-show-numbers t)
+(use-package company
+  :config
+  (setq
+   company-idle-delay 0.2
+   company-minimum-prefix-length 1
+   company-show-numbers t
+   company-require-match 'never
+   company-selection-wrap-around t
+   ))
+
+(use-package lsp
+  :hook
+  (js2-mode . lsp)
+  (java-mode . lsp)
+  (lsp . company-mode))
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends)
+  (setq company-transformers '(company-sort-by-backend-importance)
+	company-lsp-async t
+	company-lsp-cache-candidates nil))
 
 (use-package lsp-ui
   :ensure t)
@@ -170,6 +188,9 @@
 (use-package js-auto-beautify
   :ensure t
   :hook js2-mode-hook)
+
+(use-package lsp-java
+  :ensure t)
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
