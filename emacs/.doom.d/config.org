@@ -189,7 +189,12 @@
   (setq
    company-idle-delay 0.2
    company-minimum-prefix-length 1
-   company-show-numbers t))
+   company-show-numbers t
+   company-require-match 'never
+   company-selection-wrap-around t
+
+   ))
+
 #+end_src
 * Lsp
 #+begin_src emacs-lisp
@@ -281,9 +286,9 @@
 #+end_src
 ** Rjsx mode
 #+begin_src emacs-lisp
-(use-package rjsx-mode
-  :ensure t
-  :mode ("\\.js\\'"))
+;; (use-package rjsx-mode
+;;   :ensure t
+;;   :mode ("\\.js\\'"))
 #+end_src
 
 ** Tide
@@ -297,7 +302,6 @@
   (eldoc-mode +1)
   (company-mode +1))
 
-(add-to-list 'company-backends '(company-tide company-dabbrev))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
@@ -309,7 +313,7 @@
 (use-package tide
   :ensure t
   :after (rjsx-mode company flycheck)
-  :hook (rjsx-mode . setup-tide-mode))
+  :hook (js2-mode . setup-tide-mode))
 #+end_src
 
 #+RESULTS:
