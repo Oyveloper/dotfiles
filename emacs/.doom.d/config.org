@@ -209,7 +209,14 @@
   :hook
   (js2-mode . lsp)
   (java-mode . lsp)
-  (lsp . company-mode))
+  (lsp . company-mode)
+  :config
+  (setq
+   lsp-javascript-suggest-complete-function-calls t
+   lsp-auto-guess-root t
+   lsp-javascript-references-code-lens-enabled t
+   lsp-prefer-capf nil
+   company-lsp-filter-candidates t))
 (use-package company-lsp
   :config
   (push 'company-lsp company-backends)
