@@ -1,3 +1,5 @@
+(evilem-default-keybindings "ø")
+
 (package-initialize)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -34,9 +36,9 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-     (use-package popup-kill-ring
-       :ensure t
-       :bind ("M-p" . popup-kill-ring))
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-p" . popup-kill-ring))
 
 (global-set-key (kbd "M-\"") 'insert-pair)
 (global-set-key (kbd "M-\'") 'insert-pair)
@@ -58,19 +60,19 @@
   :config
   (flutter-l10n-flycheck-setup))
 
-  (use-package yasnippet
+(use-package yasnippet
+  :ensure t
+  :config
+  (use-package yasnippet-snippets
     :ensure t
-    :config
-    (use-package yasnippet-snippets
-      :ensure t
-      )
-    (yas-reload-all)
-    (setq yas-also-auto-indent-first-line t))
+    )
+  (yas-reload-all)
+  (setq yas-also-auto-indent-first-line t))
 
-  (add-hook 'python-mode-hook 'yas-minor-mode)
-  (add-hook 'js-mode-hook 'yas-minor-mode)
-  (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-  (add-hook 'org-mode-hook 'yas-minor-mode)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+(add-hook 'js-mode-hook 'yas-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+(add-hook 'org-mode-hook 'yas-minor-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -105,7 +107,7 @@
             ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
             ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))))
 
-    (defun split-and-follow-horizontally ()
+(defun split-and-follow-horizontally ()
       (interactive)
       (split-window-below)
       (balance-windows)
@@ -127,12 +129,41 @@
  (:prefix "w"
   :desc "ace-other-window" "w" #'ace-window))
 
-(setq company-idle-delay 0.2)
-(setq company-minimum-prefix-length 2)
-(setq company-show-numbers t)
+(use-package company
+  :config
+  (setq
+   company-idle-delay 0.2
+   company-minimum-prefix-length 1
+   company-show-numbers t
+   company-require-match 'never
+   company-selection-wrap-around t
+
+   ))
+
+(use-package lsp-mode
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-enable-snippet nil
+        lsp-eldoc-enable-hover nil
+        lsp-prefer-capf t
+        lsp-idle-dalay 0.0)
+  :hook(
+        (python-mode . lsp)
+        (js-mode . lsp)
+        (js2-mode . lsp)
+        (java-mode . lsp)
+        (rjsx-mode . lsp)
+        (html-mode . lsp)
+        (web-mode . lsp)
+        (emacs-lisp-mode . lsp)))
 
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-ui-doc-enable nil
+        lsp-ui-sideline-enable nil
+        lsp-ui-flycheck-enable t))
 
 (map!
  :leader
@@ -149,7 +180,7 @@
 (use-package flycheck-tcl
   :ensure t)
 
-  (global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
+(global-set-key (kbd "C-c h e") (lambda () (interactive)(find-file"/ssh:pi@home:/home/homeassistant/.homeassistant/configuration.yaml")))
 
 (defun insert-jsdoc-type-annotation ()
   (interactive)
@@ -169,7 +200,7 @@
 
 (use-package js-auto-beautify
   :ensure t
-  :hook js2-mode-hook)
+  :hook rjsx-mode-hook)
 
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
@@ -197,5 +228,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
-
-(evilem-default-keybindings "ø")
