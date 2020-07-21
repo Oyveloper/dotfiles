@@ -130,9 +130,14 @@
   :desc "ace-other-window" "w" #'ace-window))
 
 (use-package company
+  :diminish ""
+  :bind (:map company-active-map
+         ("<escape>" . company-abort)
+         ("<tab>" . yas-expand))
   :config
   (setq
    company-idle-delay 0.2
+   company-transformers '(company-sort-by-backend-importance)
    company-minimum-prefix-length 1
    company-show-numbers t
    company-require-match 'never
@@ -147,6 +152,8 @@
   :hook (company-mode . company-box-mode))
 
 (use-package lsp
+  :init
+  (set-company-backend! 'lsp-mode '(company-lsp :with company-capf company-dabbrev))
   :hook
   (js2-mode . lsp)
   (java-mode . lsp)
@@ -156,15 +163,8 @@
    lsp-javascript-suggest-complete-function-calls t
    lsp-auto-guess-root t
    lsp-javascript-references-code-lens-enabled t
-   lsp-prefer-capf nil
+   lsp-prefer-capf t
    company-lsp-filter-candidates t))
-(use-package company-lsp
-  :config
-  (setq company-backends '(company-lsp))
-  ;; (push 'company-lsp company-backends)
-  (setq company-transformers '(company-sort-by-backend-importance)
-        company-lsp-async t
-        company-lsp-cache-candidates nil))
 
 (use-package lsp-ui
   :ensure t
