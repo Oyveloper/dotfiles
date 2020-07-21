@@ -134,7 +134,7 @@
   :bind (:map company-active-map
          ("<escape>" . company-abort)
          ("<tab>" . yas-expand))
-  :config
+  :init
   (setq
    company-idle-delay 0.2
    company-minimum-prefix-length 1
@@ -143,12 +143,12 @@
    company-selection-wrap-around t
    ))
 
-;; (use-package company-box
-;;   :init
-;;   (setq
-;;    company-box-icons-alist 'company-box-icons-all-the-icons
-;;    window-resize-pixelwize nil)
-;;   :hook (company-mode . company-box-mode))
+(use-package company-box
+  :init
+  (setq
+   company-box-icons-alist 'company-box-icons-all-the-icons
+   window-resize-pixelwize nil)
+  :hook (company-mode . company-box-mode))
 
 (use-package lsp
   :hook

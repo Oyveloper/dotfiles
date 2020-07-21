@@ -195,7 +195,7 @@
   :bind (:map company-active-map
          ("<escape>" . company-abort)
          ("<tab>" . yas-expand))
-  :config
+  :init
   (setq
    company-idle-delay 0.2
    company-minimum-prefix-length 1
@@ -205,15 +205,22 @@
    ))
 #+end_src
 
+#+RESULTS:
+: yas-expand
+
 ** company box
 #+begin_src emacs-lisp
-;; (use-package company-box
-;;   :init
-;;   (setq
-;;    company-box-icons-alist 'company-box-icons-all-the-icons
-;;    window-resize-pixelwize nil)
-;;   :hook (company-mode . company-box-mode))
+(use-package company-box
+  :init
+  (setq
+   company-box-icons-alist 'company-box-icons-all-the-icons
+   window-resize-pixelwize nil)
+  :hook (company-mode . company-box-mode))
 #+end_src
+
+#+RESULTS:
+| evil-normalize-keymaps | company-mode-set-explicitly | company-box-mode |
+
 * Lsp
 #+begin_src emacs-lisp
 (use-package lsp
