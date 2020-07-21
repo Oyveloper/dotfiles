@@ -5,7 +5,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dark+)
+(setq doom-theme 'doom-one)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -16,7 +16,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Consolas" :size 14))
+(setq doom-font (font-spec :family "SF Mono" :size 14))
 
 (use-package avy
   :ensure t)
@@ -137,25 +137,22 @@
   :config
   (setq
    company-idle-delay 0.2
-   company-transformers '(company-sort-by-backend-importance)
    company-minimum-prefix-length 1
    company-show-numbers t
    company-require-match 'never
    company-selection-wrap-around t
    ))
 
-(use-package company-box
-  :config
-  (setq
-   company-box-icons-alist 'company-box-icons-all-the-icons
-   window-resize-pixelwize nil)
-  :hook (company-mode . company-box-mode))
+;; (use-package company-box
+;;   :init
+;;   (setq
+;;    company-box-icons-alist 'company-box-icons-all-the-icons
+;;    window-resize-pixelwize nil)
+;;   :hook (company-mode . company-box-mode))
 
 (use-package lsp
-  :init
-  (set-company-backend! 'lsp-mode '(company-lsp :with company-capf company-dabbrev))
   :hook
-  (js2-mode . lsp)
+  ;; (js2-mode . lsp)
   (java-mode . lsp)
   (lsp . company-mode)
   :config
@@ -168,6 +165,7 @@
 
 (use-package lsp-ui
   :ensure t
+  :after (lsp)
   :custom
     ;; lsp-ui-doc
     (lsp-ui-doc-enable nil)
@@ -216,9 +214,10 @@
   :desc "Insert jsdoc template" "d" #'js-doc-insert-function-doc-snippet
   :desc "Insert jsdoc typeannotation" "t" #'insert-jsdoc-type-annotation))
 
-(use-package js-auto-beautify
+(use-package prettier-js
   :ensure t
-  :hook js2-mode-hook)
+  :after (js2-mode)
+  :hook (js2-mode-hook . prettier-js-mode))
 
 (use-package lsp-java
   :ensure t)
