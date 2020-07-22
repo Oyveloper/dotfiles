@@ -193,7 +193,7 @@ gaps inner 10
 
 smart_borders on
 smart_borders no_gaps
-border_radius 5
+border_radius 2
 
 
 
@@ -207,11 +207,11 @@ bindsym $mod+c exec google-chrome
 bindsym Mod1+Control+e exec emacs
 bindsym $mod+t exec todoist
 
-set $bose "bluez_sink.04_52_C7_32_2C_50.a2dp_sink"
+set $default-sink "@DEFAULT_SINK@"
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $bose +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $bose -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $bose toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $default-sink +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $default-sink -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $default-sink toggle # mute sound
 
 # Screenshots
 bindsym --release $mod+Down exec "$(import png:- | xclip -selection clipboard -t image/png)"
