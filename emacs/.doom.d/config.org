@@ -49,9 +49,14 @@
 
 * Editor behaviour
 ** Tab size
-#+begin_src
-(setq default-tab-width 4)
+#+begin_src emacs-lisp
+(setq default-tab-width 2)
+(setq css-indent-offset 2)
 #+end_src
+
+#+RESULTS:
+: 2
+
 ** Windows and buffers
 #+begin_src emacs-lisp
 ;; Setting the kill shortcut
@@ -189,7 +194,6 @@
 
 * Company
 #+begin_src emacs-lisp
-
 (use-package company
   :diminish ""
   :bind (:map company-active-map
@@ -247,7 +251,7 @@
   :after (lsp)
   :custom
     ;; lsp-ui-doc
-    (lsp-ui-doc-enable nil)
+    (lsp-ui-doc-enable t)
     (lsp-ui-doc-header nil)
     (lsp-ui-doc-include-signature nil)
     (lsp-ui-doc-position 'at-point) ;; top, bottom, or at-point
@@ -255,14 +259,14 @@
     (lsp-ui-doc-max-height 30)
     (lsp-ui-doc-use-childframe t)
     (lsp-ui-doc-use-webkit nil)
-  :config
-  (global-set-key (kbd "M-RET") #'lsp-ui-sideline-apply-code-actions)
   :hook
   (lsp-ui-mode . lsp-ui-doc-mode))
+
+  (global-set-key (kbd "M-RET") #'lsp-ui-sideline-apply-code-actions)
 #+end_src
 
 #+RESULTS:
-
+: lsp-ui-sideline-apply-code-actions
 ** Jump to implementation
 #+begin_src emacs-lisp
 (map!
@@ -272,7 +276,6 @@
 #+end_src
 
 * Web
-
 ** Css
 #+begin_src emacs-lisp
 (use-package css-autoprefixer

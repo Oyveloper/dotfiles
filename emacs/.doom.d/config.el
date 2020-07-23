@@ -27,6 +27,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+(setq default-tab-width 2)
+(setq css-indent-offset 2)
+
 ;; Setting the kill shortcut
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
@@ -168,7 +171,7 @@
   :after (lsp)
   :custom
     ;; lsp-ui-doc
-    (lsp-ui-doc-enable nil)
+    (lsp-ui-doc-enable t)
     (lsp-ui-doc-header nil)
     (lsp-ui-doc-include-signature nil)
     (lsp-ui-doc-position 'at-point) ;; top, bottom, or at-point
@@ -176,10 +179,10 @@
     (lsp-ui-doc-max-height 30)
     (lsp-ui-doc-use-childframe t)
     (lsp-ui-doc-use-webkit nil)
-  :config
-  (global-set-key (kbd "M-RET") #'lsp-ui-sideline-apply-code-actions)
   :hook
   (lsp-ui-mode . lsp-ui-doc-mode))
+
+  (global-set-key (kbd "M-RET") #'lsp-ui-sideline-apply-code-actions)
 
 (map!
  :leader
