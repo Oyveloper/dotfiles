@@ -29,6 +29,8 @@
 
 (setq default-tab-width 2)
 (setq css-indent-offset 2)
+(setq tcl-indent-level 2)
+(setq js-indent-level 2)
 
 ;; Setting the kill shortcut
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
@@ -139,7 +141,7 @@
          ("<tab>" . yas-expand))
   :init
   (setq
-   company-idle-delay 0.2
+   company-idle-delay 0.1
    company-minimum-prefix-length 1
    company-show-numbers t
    company-require-match 'never
@@ -253,3 +255,17 @@
 ;; they are implemented.
 
 (evilem-default-keybindings "ø")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yasnippet-snippets tide prettier-js popup-kill-ring lsp-ui lsp-python-ms lsp-java js-doc js-auto-beautify flycheck-tcl css-autoprefixer company-lsp company-box))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

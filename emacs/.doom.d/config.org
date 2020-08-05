@@ -52,6 +52,8 @@
 #+begin_src emacs-lisp
 (setq default-tab-width 2)
 (setq css-indent-offset 2)
+(setq tcl-indent-level 2)
+(setq js-indent-level 2)
 #+end_src
 
 #+RESULTS:
@@ -201,7 +203,7 @@
          ("<tab>" . yas-expand))
   :init
   (setq
-   company-idle-delay 0.2
+   company-idle-delay 0.1
    company-minimum-prefix-length 1
    company-show-numbers t
    company-require-match 'never
