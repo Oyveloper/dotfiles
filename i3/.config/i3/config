@@ -238,7 +238,7 @@ bindsym XF86AudioPrev exec playerctl previous
  bindsym $mod+Control+p exec playerctl play-pause
 
 # layout screens
-exec_always --no-startup-id ~/.screenlayout/screen_layout.sh
+#exec_always --no-startup-id ~/.screenlayout/screen_layout.sh
 #Set bacground
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id ~/.config/start_compton.sh
