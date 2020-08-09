@@ -208,7 +208,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # layout screens
-exec_always --no-startup-id ~/.screenlayout/screen_layout.sh
+#exec_always --no-startup-id ~/.screenlayout/screen_layout.sh
 #Set bacground
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton -b
