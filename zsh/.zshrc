@@ -108,3 +108,18 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:/home/oyvind/utils
+source /home/oyvind/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export EVENT_DB_PWD=eventpassord
+
+export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
+export PATH="$HOME/.pub-cache/bin:$PATH"
+export PATH="$HOME/flutter/bin/cache/dart-sdk/bin:$PATH"
+export PATH="$HOME/flutter/bin:$PATH"
+
+export PATH="$PATH:/usr/local/mysql/bin"
+
+export WORKOUT_DB_NAME="mysql://localhost:3306/workout_tracker"
+export WORKOUT_DB_USER=root
+export WORKOUT_DB_SECRET_KEY=Teitpassord
