@@ -25,6 +25,11 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "SF Mono" :size 14))
+
+(use-package color-identifiers-mode
+  :ensure t)
+
+(setq global-color-identifiers-mode t)
 #+end_src
 
 #+RESULTS:
@@ -54,6 +59,7 @@
 (setq css-indent-offset 2)
 (setq tcl-indent-level 2)
 (setq js-indent-level 2)
+(setq typescript-indent-level 2)
 #+end_src
 
 #+RESULTS:
@@ -165,6 +171,83 @@
             ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))))
 #+end_src
 
+#+RESULTS:
+| t | Personal todo | entry | (file+headline +org-capture-todo-file Inbox) | * TODO %? |
+
+** PDF
+*** AUTORECONF
+#+begin_src emacs-lisp
+  (setenv "PATH" (concat "/usr/local/bin/autoreconf" (getenv "PATH")))
+#+end_src
+*** Export pdf
+#+begin_src emacs-lisp
+(map!
+ :leader
+ (:prefix "l"
+  :desc "Export latex" "e" #'org-latex-export-to-pdf))
+
+(setq org-auto-export-active 'nil)
+(defun org-save-and-export ()
+  (interactive)
+  (if (eq major-mode 'org-mode)
+    (org-latex-export-to-pdf))
+  )
+
+(defun org-auto-export ()
+  (interactive)
+  (if (org-auto-export-active)
+      (setq org-auto-export-active nil)
+    (setq org-auto-export-active t)))
+
+(add-hook 'after-save-hook 'org-save-and-export nil t)
+
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+(setq org-latex-pdf-process
+      '("pdflatex -interaction nonstopmode -output-directory %o %f"
+        "bibtex %b"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"))
+#+end_src
+
+#+RESULTS:
+| pdflatex -interaction nonstopmode -output-directory %o %f | bibtex %b | pdflatex -interaction nonstopmode -output-directory %o %f | pdflatex -interaction nonstopmode -output-directory %o %f |
+
+*** pdf-tools
+#+begin_src emacs-lisp
+    (use-package pdf-tools
+      :ensure t
+      :config
+      (add-hook 'pdf-tools-enabled-hook 'auto-revert-mode)
+      (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-tools-install))
+      (setq pdf-view-use-scaling t)
+      (custom-set-variables
+        '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+      (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
+      (pdf-tools-install))
+#+end_src
+** Latex
+*** latex path
+#+begin_src emacs-lisp
+  (setenv "PATH" (concat "/Library/TeX/texbin:" (getenv "PATH")))
+  (setenv "PKG_CONFIG_PATH" "/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig")
+  (setq exec-path (append '("/Library/TeX/texbin") exec-path))
+#+end_src
+*** preview-mode
+#+begin_src emacs-lisp
+  (use-package latex-preview-pane
+    :ensure t)
+
+(setq exec-path (append exec-path '("/usr/local/bin/gs")))
+#+end_src
+
+
+*** Auto revert buffers
+#+begin_src emacs-lisp
+  (global-auto-revert-mode 1)
+  (setq auto-revert-interval 1) ;; Refresh buffers faster
+  (auto-revert-set-timer) ;; For updating the auto-refresh.
+#+end_src
 * Window management
 ** Cursor following when splitting the window
 #+begin_src emacs-lisp
