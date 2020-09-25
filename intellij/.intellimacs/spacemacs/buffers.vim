@@ -3,8 +3,8 @@ nnoremap <leader>bb    :action RecentFiles<CR>
 vnoremap <leader>bb    :action RecentFiles<CR>
 
 " Close current tab
-nnoremap <leader>bd    :action CloseContent<CR>
-vnoremap <leader>bd    <Esc>:action CloseContent<CR>
+nnoremap <leader>bk    :action CloseContent<CR>
+vnoremap <leader>bk    <Esc>:action CloseContent<CR>
 
 " Show event log
 nnoremap <leader>bm    :action ActivateEventLogToolWindow<CR>

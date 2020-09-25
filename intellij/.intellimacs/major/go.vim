@@ -1,6 +1,6 @@
 " Go to declaration
-nnoremap <leader>mgg    :action GotoDeclaration<CR>
-vnoremap <leader>mgg    <Esc>:action GotoDeclaration<CR>
+nnoremap <leader>cd    :action GotoDeclaration<CR>
+vnoremap <leader>cd    <Esc>:action GotoDeclaration<CR>
 
 " Go to implementation
 nnoremap <leader>mgi    :action GotoImplementation<CR>
