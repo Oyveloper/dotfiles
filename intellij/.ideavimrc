@@ -1,1 +1,12 @@
 source ~/.vimrc
+" Selected Intellimacs modules
+source ~/.intellimacs/spacemacs.vim
+source ~/.intellimacs/extra.vim
+source ~/.intellimacs/major.vim
+source ~/.intellimacs/hybrid.vim
+
+
+set multiple-cursors
+set easymotion
+
+map <Leader>ø <Plug>(easymotion-prefix)
