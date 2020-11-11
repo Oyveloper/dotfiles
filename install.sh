@@ -4,7 +4,7 @@ cd
 # Installing some basic packages
 sudo apt install emacs vim stow wget curl zsh nitrogen \
   pavucontrol compton rofi playerctl xclip silversearcher-ag xdotool \
-  neofetch libnotify screenfetch lolcat cowsay alacritty dunst \
+  neofetch screenfetch lolcat cowsay dunst \
   lightdm-gtk-greeter slick-greeter htop blueman compton
 
 # Installing i3

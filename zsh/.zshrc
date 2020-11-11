@@ -119,7 +119,12 @@ export PATH="$HOME/flutter/bin:$PATH"
 
 export PATH="$PATH:/usr/local/mysql/bin"
 
+export PATH="$PATH:/home/oyvind/idea-IU-2020.6397.94/bin"
+
 export WORKOUT_DB_NAME="mysql://localhost:3306/workout_tracker"
 export WORKOUT_DB_USER=root
 export WORKOUT_DB_SECRET_KEY=Teitpassord
 alias python=python3
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
