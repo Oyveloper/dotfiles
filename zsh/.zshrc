@@ -122,3 +122,4 @@ export PATH="$PATH:/usr/local/mysql/bin"
 export WORKOUT_DB_NAME="mysql://localhost:3306/workout_tracker"
 export WORKOUT_DB_USER=root
 export WORKOUT_DB_SECRET_KEY=Teitpassord
+alias python=python3
