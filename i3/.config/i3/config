@@ -4,7 +4,6 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -106,6 +105,16 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -137,6 +146,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Control+Shift+h move workspace to output right
+bindsym $mod+Control+Shift+l move workspace to output left
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -154,6 +166,7 @@ mode "resize" {
         # Pressing down will grow the window’s height. bindsym h resize shrink width 10 px or 10 ppt bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -206,6 +219,8 @@ bindsym $mod+c exec google-chrome
 bindsym Mod1+Control+e exec emacs
 bindsym $mod+t exec todoist
 
+bindsym $mod+d workspace 5; exec /usr/bin/discord
+
 set $default-sink "@DEFAULT_SINK@"
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $default-sink +5% #increase sound volume
@@ -233,7 +248,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #alternative media player
- bindsym $mod+Control+p exec playerctl play-pause
+bindsym $mod+Control+p exec playerctl play-pause
 
 # layout screens
 #exec_always --no-startup-id ~/.screenlayout/screen_layout.sh
@@ -246,3 +261,5 @@ exec_always --no-startup-id flashfocus --flash-opacity 0.8 --flash-lone-windows 
 
 # Initialize polybar
 exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
+
+exec_always --no-startup-id setxkbmap -option caps:escape

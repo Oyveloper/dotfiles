@@ -127,3 +127,5 @@ export WORKOUT_DB_SECRET_KEY=Teitpassord
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias rvim='sudo -E vim'
