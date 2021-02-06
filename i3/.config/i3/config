@@ -214,7 +214,7 @@ bindsym $mod+shift+i exec --no-startup-id fontawesome-menu -f /home/oyvind/utils
         -o '-i'
 #smart_borders on.
 
-bindsym $mod+c exec google-chrome
+bindsym $mod+c exec brave-browser
 
 bindsym Mod1+Control+e exec emacs
 bindsym $mod+t exec todoist
@@ -241,6 +241,7 @@ bindsym --release $mod+Down exec "$(import png:- | xclip -selection clipboard -t
 
 # Lock the screen
 bindsym $mod+Mod1+l exec dm-tool lock
+bindsym $mod+Home exec dm-tool lock
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -257,9 +258,10 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id ~/.config/start_compton.sh
 
 #flash focus
-exec_always --no-startup-id flashfocus --flash-opacity 0.8 --flash-lone-windows never -t 200
+#exec_always --no-startup-id flashfocus --flash-opacity 0.8 --flash-lone-windows never -t 200
 
 # Initialize polybar
 exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
 
 exec_always --no-startup-id setxkbmap -option caps:escape
+
