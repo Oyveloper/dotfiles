@@ -4,7 +4,8 @@ configuration {
   hide-scrollbar:     true;
   disable-history:    true;
   sidebar-mode:       true;
-  modi:               "drun,run,window";
+  modi:               "combi,window";
+  combi-modi:         "drun,run,window";
   display-drun:       "Apps";
   display-run:        "Run";
   display-window:     "Running Apps";

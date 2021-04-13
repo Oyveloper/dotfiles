@@ -73,6 +73,7 @@ plugins=(
 	zsh-autosuggestions
 	pip
 	zsh-syntax-highlighting
+	autojump
 	#autoenv
 	docker
 	python
