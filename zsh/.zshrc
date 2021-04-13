@@ -71,8 +71,8 @@ DISABLE_MAGIC_FUNCTIONS=true
 plugins=(
 	git
 	zsh-autosuggestions
-	pip
 	zsh-syntax-highlighting
+    autojump
 	#autoenv
 	docker
 	python
@@ -131,3 +131,14 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 alias rvim='sudo -E vim'
+export PATH="/usr/local/sbin:$PATH"
+export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
+export PATH="${M2_HOME}/bin:$PATH"
+
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

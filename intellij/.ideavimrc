@@ -1,4 +1,4 @@
-source ~/.vimrc
+source ~/.config/nvim/init.vim
 " Selected Intellimacs modules
 source ~/.intellimacs/spacemacs.vim
 source ~/.intellimacs/extra.vim
