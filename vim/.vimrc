@@ -6,8 +6,14 @@ set timeoutlen=500
 set splitbelow
 set splitright
 set tabstop=4
+set number relativenumber
+set nu rnu
+set nohlsearch
+
 nmap <leader>w <C-w>
 nmap <leader>bk :q<CR>
+
+set tabstop=2 shiftwidth=2 expandtab
 
 
 " Buffers
@@ -68,7 +74,6 @@ if !exists('g:vscode')
 
   syntax on
   set expandtab
-  set nu
   set nowrap
   set smartcase
   set noswapfile

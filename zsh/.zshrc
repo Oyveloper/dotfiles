@@ -8,7 +8,24 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="spaceship" 
+SPACESHIP_DOCKER_SHOW=false
+
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stampts section
+  user          # Username section
+  host          # Hostname section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  node          # Node.js section
+  venv          # virtualenv section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,8 +91,8 @@ plugins=(
 	zsh-syntax-highlighting
 	autojump
 	#autoenv
-	docker
-	python
+	#docker
+	#python
 	themes
 )
 
@@ -137,8 +154,11 @@ export PATH="${M2_HOME}/bin:$PATH"
 
 
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+#eval "$(jenv init -)"
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+export JAVA_HOME=/Users/oyvind/Library/Java/JavaVirtualMachines/corretto-11.0.10/Contents/Home
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /usr/local/bin/terraform terraform
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
