@@ -125,7 +125,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:/home/oyvind/utils
-export EVENT_DB_PWD=eventpassord
 
 export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
@@ -139,9 +138,6 @@ export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/home/oyvind/idea-IU-2020.6397.94/bin"
 export PATH="$PATH:/home/oyvind/clion-2020.3/bin"
 
-export WORKOUT_DB_NAME="mysql://localhost:3306/workout_tracker"
-export WORKOUT_DB_USER=root
-export WORKOUT_DB_SECRET_KEY=Teitpassord
 alias python=python3
 
 alias pbcopy='xclip -selection clipboard'
@@ -149,16 +145,6 @@ alias pbpaste='xclip -selection clipboard -o'
 
 alias rvim='sudo -E vim'
 export PATH="/usr/local/sbin:$PATH"
-export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
 export PATH="${M2_HOME}/bin:$PATH"
 
 
-export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export JAVA_HOME=/Users/oyvind/Library/Java/JavaVirtualMachines/corretto-11.0.10/Contents/Home
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-#autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /usr/local/bin/terraform terraform
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
