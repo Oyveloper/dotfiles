@@ -16,9 +16,15 @@ nmap <leader>bk :q<CR>
 set tabstop=2 shiftwidth=2 expandtab
 
 
+
+
 " Buffers
 nmap <leader>bn :bNext<CR>
 nmap <leader>bp :bPrev<CR>
+
+nmap <tab> :tabn<CR>
+nmap <S-tab> :tabp<CR>
+
 nmap <leader>bb :buffers<CR>
 
 nmap <leader>pi :PlugInstall<CR>
@@ -49,12 +55,27 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap > >gv
 vnoremap < <gv
 
+" Telescope
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'jremmen/vim-ripgrep'
 Plug 'mbbill/undotree'
+
+" inside plug#begin:
+" use normal easymotion when in vim mode
+if (!exists('g:vscode'))
+
 Plug 'easymotion/vim-easymotion'
+endif
+
+if (exists('g:vscode'))
+Plug 'asvetliakov/vim-easymotion'
+endif
+" use vscode easymotion when in vscode mode
+
 Plug 'liuchengxu/vim-which-key'
 
 " On-demand lazy load
@@ -95,6 +116,11 @@ endif
 
 " vscode specific
 if exists('g:vscode')
+
+  nnoremap <leader>ff <Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>
+  nnoremap gs <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
+  nnoremap <leader>gg <Cmd>call VSCodeNotify('magit.status')<CR>
+
 
 endif
 
