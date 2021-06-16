@@ -126,7 +126,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:/home/oyvind/utils
-export EVENT_DB_PWD=eventpassord
 
 export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
@@ -141,14 +140,12 @@ export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/home/oyvind/idea-IU-2020.6397.94/bin"
 export PATH="$PATH:/home/oyvind/clion-2020.3/bin"
 
-export WORKOUT_DB_NAME="mysql://localhost:3306/workout_tracker"
-export WORKOUT_DB_USER=root
-export WORKOUT_DB_SECRET_KEY=Teitpassord
 alias python=python3
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+<<<<<<< HEAD
 alias rvim='sudo -E nvim'
 #export PATH="/usr/local/sbin:$PATH"
 #export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
@@ -171,5 +168,10 @@ export PATH=$HOME/.config/rofi/bin:$PATH
 #export NVM_DIR="$HOME/.nvm"
 #  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 #  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+alias rvim='sudo -E vim'
+export PATH="/usr/local/sbin:$PATH"
+export PATH="${M2_HOME}/bin:$PATH"
 
 
