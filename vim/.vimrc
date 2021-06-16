@@ -15,6 +15,9 @@ nmap <leader>bk :q<CR>
 
 set tabstop=2 shiftwidth=2 expandtab
 
+" Marks
+nmap - '
+
 
 " Buffers
 nmap <leader>bn :bNext<CR>
@@ -59,6 +62,7 @@ Plug 'liuchengxu/vim-which-key'
 
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'gruvbox-community/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'tpope/vim-surround'
 
@@ -83,13 +87,10 @@ if !exists('g:vscode')
   set expandtab
   set tabstop=4
   set softtabstop=4
-  set colorcolumn=80
-
-
 
   " theme
   set background=dark
-  colorscheme palenight
+  colorscheme gruvbox
 
 endif
 

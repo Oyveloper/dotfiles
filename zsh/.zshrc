@@ -90,6 +90,7 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	autojump
+    vi-mode
 	#autoenv
 	#docker
 	#python
@@ -129,6 +130,7 @@ export EVENT_DB_PWD=eventpassord
 
 export SPICETIFY_INSTALL="/home/oyvind/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
+export PATH="idea-IU-211.6693.111/bin:$PATH"
 
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/flutter/bin/cache/dart-sdk/bin:$PATH"
@@ -147,18 +149,27 @@ alias python=python3
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias rvim='sudo -E vim'
-export PATH="/usr/local/sbin:$PATH"
-export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
-export PATH="${M2_HOME}/bin:$PATH"
+alias rvim='sudo -E nvim'
+#export PATH="/usr/local/sbin:$PATH"
+#export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
+#export PATH="${M2_HOME}/bin:$PATH"
+export PATH=$HOME/.config/rofi/bin:$PATH
 
 
-export PATH="$HOME/.jenv/bin:$PATH"
+#export PATH="$HOME/.jenv/bin:$PATH"
 #eval "$(jenv init -)"
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export JAVA_HOME=/Users/oyvind/Library/Java/JavaVirtualMachines/corretto-11.0.10/Contents/Home
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#export JAVA_HOME=/Users/oyvind/Library/Java/JavaVirtualMachines/corretto-11.0.10/Contents/Home
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/local/bin/terraform terraform
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+#export NVM_DIR="$HOME/.nvm"
+#  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+

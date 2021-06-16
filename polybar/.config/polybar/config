@@ -17,12 +17,12 @@
 ;==========================================================
 
 [colors]
-; background = ${xrdb:color0:#222}
-background = #222
+background = ${xrdb:color0:#222}
+; background = #222
 bar-background = #000f0f0f
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+;background-alt = #444
+foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -32,11 +32,7 @@ alert = #bd2c40
 monitor = ${env:MONITOR:}
 width = 100%
 height = 30
-radius = 15.0
 
-border-top-size = 10
-border-right-size = 10
-border-left-size = 10
 bottom = false
 padding = 0
 fixed-center = true
@@ -51,13 +47,13 @@ foreground = ${colors.foreground}
 
 dpi = 0
 
-font-0 = scientifica
+font-0 = Fira Code:pixelsize=10;
 font-1 = FontAwesome5Free:style=Solid:pixelsize=10:antialias=true;3
 font-2 = FontAwesome5Brands:style=Soldi:pixelsize=10:antialias=true;3
 
 modules-left = workspaces
 modules-center= time
-modules-right = bluetooth audio-select pulseaudio wireless-network memory cpu
+modules-right = bluetooth audio-select pulseaudio memory cpu
 
 
 ;--------------------------------------------
@@ -160,23 +156,6 @@ format-padding = 2
 click-left = blueman-manager &
 exec = echo "noe"
 
-[module/wireless-network]
-type = internal/network
-interface = wlp4s0
-interval = 3.0
-label-connected = %essid%
-
-format-connected = %{A1:nm-connection-editor &:} <label-connected> %{A}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.background}
-format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-prefix-background = ${colors.background}
-
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground}
-label-disconnected-background = ${colors.background}
-
 
 
 [module/workspaces]
@@ -187,16 +166,16 @@ index-sort      = true
 wrapping-scroll = false
 strip-wsnumbers = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
+ws-icon-0 = 3;
+ws-icon-8 = 4;︁
+ws-icon-4 = 5;
 ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = 10;10
+ws-icon-6 = 7;︁
+ws-icon-7 = 8;︁
+ws-icon-9 = 9;︁
+ws-icon-3 = 10;
 
 ws-icon-default =
 
@@ -205,7 +184,7 @@ label-mode-foreground = ${xrdb:color7}
 label-mode-padding    = 3
 
 label-focused            = %icon%
-label-focused-background = ${xrdb:color1}
+label-focused-background = ${xrdb:color6}
 label-focused-foreground = ${xrdb:color15}
 label-focused-padding    = 3
 
