@@ -145,7 +145,6 @@ alias python=python3
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-<<<<<<< HEAD
 alias rvim='sudo -E nvim'
 #export PATH="/usr/local/sbin:$PATH"
 #export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
