@@ -173,4 +173,6 @@ alias rvim='sudo -E vim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${M2_HOME}/bin:$PATH"
 
+export EDITOR=nvim
+
 
