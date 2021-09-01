@@ -55,8 +55,9 @@ map <leader>ø <Plug>(easymotion-prefix)
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-vnoremap > >gv
+
 vnoremap < <gv
+vnoremap > >gv
 
 " Telescope
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>

@@ -10,3 +10,6 @@ set multiple-cursors
 set easymotion
 
 map <Leader>ø <Plug>(easymotion-prefix)
+
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
