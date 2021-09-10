@@ -122,6 +122,11 @@ if exists('g:vscode')
   nnoremap <leader>ff <Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>
   nnoremap gs <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
   nnoremap <leader>gg <Cmd>call VSCodeNotify('magit.status')<CR>
+  nnoremap <leader>op <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
+  nnoremap <leader>en <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
+
+  nnoremap <leader>wL <Cmd>call VSCodeNotify('workbench.action.moveEditorToNextGroup')<CR>
+  nnoremap <leader>wH <Cmd>call VSCodeNotify('workbench.action.moveEditorToPreviousGroup')<CR>
 
 
 endif

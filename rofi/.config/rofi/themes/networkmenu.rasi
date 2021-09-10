@@ -1,6 +1,10 @@
 /**
  * This theme is intended for a 8 items list menu with a headerbar.
  */
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+}
 configuration {
   show-icons: false;
   columns: 1;

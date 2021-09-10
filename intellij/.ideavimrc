@@ -13,3 +13,10 @@ map <Leader>ø <Plug>(easymotion-prefix)
 
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
+
+nmap <Leader>vr :source ~/.ideavimrc<CR>
+
+nmap <Leader>wL :action MoveTabRight<CR><Leader>wl
+nmap <Leader>wJ :action MoveTabDown<CR><Leader>wj
+nmap <Leader>wH :action Unsplit<CR>
+nmap <Leader>vE :e ~/.ideavimrc<CR>

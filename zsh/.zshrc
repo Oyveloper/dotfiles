@@ -169,7 +169,7 @@ export PATH=$HOME/.config/rofi/bin:$PATH
 #  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-alias rvim='sudo -E vim'
+alias rvim='sudo -E nvim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${M2_HOME}/bin:$PATH"
 
