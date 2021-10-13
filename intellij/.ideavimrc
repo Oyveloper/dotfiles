@@ -20,3 +20,6 @@ nmap <Leader>wL :action MoveTabRight<CR><Leader>wl
 nmap <Leader>wJ :action MoveTabDown<CR><Leader>wj
 nmap <Leader>wH :action Unsplit<CR>
 nmap <Leader>vE :e ~/.ideavimrc<CR>
+
+set clipboard+=unnamed
+set clipboard+=unnamedplus
