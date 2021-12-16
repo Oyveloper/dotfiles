@@ -9,6 +9,7 @@ limelight &>/dev/null &
 # Some rules floating
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="Photoshop" manage=off
 
 # Signals
 

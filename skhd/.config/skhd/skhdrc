@@ -150,7 +150,9 @@ ctrl + alt - s : yabai -m window --resize top:0:20
 
 resize < l : yabai -m window --ratio rel:0.02
 resize < h : yabai -m window --ratio rel:-0.02
+resize < 9 : yabai -m window --ratio abs:0.7
 resize < return ; default
+resize < escape ; default
 
 alt - r ; resize
 
@@ -176,3 +178,8 @@ alt - e : yabai -m window --toggle split
 # alt - p : yabai -m window --toggle sticky;\
 #           yabai -m window --toggle topmost;\
 #           yabai -m window --toggle pip
+#
+# Non yabai stuff
+ctrl + alt - i : m volume up
+ctrl + alt - u : m volume down
+ctrl + alt - m : m volume mute
