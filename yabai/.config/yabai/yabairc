@@ -10,6 +10,8 @@ limelight &>/dev/null &
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="Photoshop" manage=off
+yabai -m rule --add app="iStat Menus" manage=off
+yabai -m rule --add app="iStat Menus Status" manage=off
 
 # Signals
 
