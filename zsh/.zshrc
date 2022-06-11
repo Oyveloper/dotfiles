@@ -182,6 +182,7 @@ alias nvzh="nvim ~/.zshrc"
 alias nvd="nvm use default"
 alias sc="source ~/.zshrc"
 alias nvv="nvim ~/.config/nvim/init.vim"
+alias lg="lazygit"
 
 
 alias tmn="tmux new"
