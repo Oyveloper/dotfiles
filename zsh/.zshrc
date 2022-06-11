@@ -8,24 +8,24 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship" 
-SPACESHIP_DOCKER_SHOW=false
+#ZSH_THEME="spaceship" 
+#SPACESHIP_DOCKER_SHOW=false
 
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  user          # Username section
-  host          # Hostname section
-  dir           # Current directory section
-  git           # Git section (git_branch + git_status)
-  node          # Node.js section
-  venv          # virtualenv section
-  exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-
+#SPACESHIP_PROMPT_ORDER=(
+#  time          # Time stampts section
+#  user          # Username section
+#  host          # Hostname section
+#  dir           # Current directory section
+#  git           # Git section (git_branch + git_status)
+#  node          # Node.js section
+#  venv          # virtualenv section
+#  exec_time     # Execution time
+#  line_sep      # Line break
+#  battery       # Battery level and status
+#  exit_code     # Exit code section
+#  char          # Prompt character
+#)
+#
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -133,7 +133,7 @@ export PATH="idea-IU-211.6693.111/bin:$PATH"
 
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/flutter/bin/cache/dart-sdk/bin:$PATH"
-export PATH="$HOME/flutter/bin:$PATH"
+export PATH="$HOME/code/tools/flutter/bin:$PATH"
 
 export PATH="$PATH:/usr/local/mysql/bin"
 
@@ -145,7 +145,6 @@ alias python=python3
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias rvim='sudo -E nvim'
 #export PATH="/usr/local/sbin:$PATH"
 #export M2_HOME="/Users/Oyvind/apache-maven-3.6.3"
 #export PATH="${M2_HOME}/bin:$PATH"
@@ -175,4 +174,19 @@ export PATH="${M2_HOME}/bin:$PATH"
 
 export EDITOR=nvim
 
+
+# Aliases
+alias nvskhd="nvim ~/.config/skhd/skhdrc"
+alias nvy="nvim ~/.config/yabai/yabairc"
+alias nvzh="nvim ~/.zshrc"
+alias nvd="nvm use default"
+alias sc="source ~/.zshrc"
+alias nvv="nvim ~/.config/nvim/init.vim"
+
+
+alias tmn="tmux new"
+alias tmnn="tmux new -s"
+alias tma="tmux a"
+
+eval "$(starship init zsh)"
 
