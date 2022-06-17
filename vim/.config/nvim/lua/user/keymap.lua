@@ -1,17 +1,17 @@
 -- remaps for nvim
 --
 
-local opts = { noremap = true, silent = true }
-local noremap_opts = { noremap = false, silent = true }
+local opts = { noremap = false, silent = true }
+local noremap_opts = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
 local function remap(mode, from, to)
-  keymap(mode, from, to, opts)
+	keymap(mode, from, to, opts)
 end
 
 local function noremap(mode, from, to)
-  keymap(mode, from, to, noremap_opts)
+	keymap(mode, from, to, noremap_opts)
 end
 
 remap("", "<Space>", "<Nop>")
@@ -27,21 +27,21 @@ remap("n", "<leader>i", ":e ~/.zshrc<CR>")
 
 -- Pasting in visual mode
 remap("v", "p", '"_dP')
-noremap("n", "<leader>w", "<C-w>")
+remap("n", "<leader>w", "<C-w>")
 
 -- files
 --
 if vim.g.vscode == nil then
-  remap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>")
-  remap("n", "<leader>ft", ":Telescope live_grep<CR>")
-  remap("n", "<leader>e", ":NvimTreeToggle<CR>")
+	remap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>")
+	remap("n", "<leader>ft", ":Telescope live_grep<CR>")
+	remap("n", "<leader>e", ":NvimTreeToggle<CR>:NvimTreeRefresh<CR>")
 
-  -- finding references
-  remap("n", "gr", ":Telescope lsp_references<CR>")
-  remap("n", "<leader>gg", ":LazyGit<CR>")
+	-- finding references
+	remap("n", "gr", ":Telescope lsp_references<CR>")
+	remap("n", "<leader>gg", ":LazyGit<CR>")
 
-  remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
-  vim.cmd([[
+	remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
+	vim.cmd([[
 
     nmap <leader>bn :BufferLineCycleNext<CR>
     nmap <leader>bp :BufferLineCyclePrev<CR>
@@ -86,7 +86,7 @@ if vim.g.vscode == nil then
 
     ]])
 else
-  vim.cmd([[
+	vim.cmd([[
 
     nnoremap <leader>ff <Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>
     nnoremap gs <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
@@ -97,6 +97,6 @@ else
     nnoremap <leader>wH <Cmd>call VSCodeNotify('workbench.action.moveEditorToPreviousGroup')<CR>
   ]])
 
-  remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'lazygit')<CR>")
-  remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
+	remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'lazygit')<CR>")
+	remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 end

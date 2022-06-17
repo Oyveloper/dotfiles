@@ -8,3 +8,5 @@
 	ui = true
 [core]
 	editor = nvim
+[url "git@bitbucket.org:"]
+	insteadof = https://bitbucket.org/
