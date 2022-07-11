@@ -90,8 +90,8 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	autojump
-    vi-mode
-    nvm
+  vi-mode
+  nvm
 	#autoenv
 	#docker
 	#python
@@ -172,6 +172,7 @@ export PATH=$HOME/.config/rofi/bin:$PATH
 alias rvim='sudo -E nvim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${M2_HOME}/bin:$PATH"
+export PATH="${GOPATH}/:$PATH"
 
 export EDITOR=nvim
 
@@ -193,8 +194,8 @@ alias tma="tmux a"
 eval "$(starship init zsh)"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
-
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 alias k="kubectl"
 source <(kubectl completion zsh)
