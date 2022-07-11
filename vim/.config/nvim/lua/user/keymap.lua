@@ -23,7 +23,9 @@ vim.g.maplocalleader = " "
 remap("n", "<C-h>", "<C-w>h")
 remap("n", "<C-j>", "<C-w>j")
 remap("n", "<C-k>", "<C-w>k")
+remap("n", "<C-l>", "<C-w>l")
 remap("n", "<leader>i", ":e ~/.zshrc<CR>")
+remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>")
 
 -- Pasting in visual mode
 remap("v", "p", '"_dP')
@@ -56,7 +58,6 @@ if vim.g.vscode == nil then
     nmap <leader>pu :UpdateRemotePlugins<CR>
 
     nmap <leader>vr :luafile ~/.config/nvim/init.lua<CR>
-    nmap <leader>ve :edit ~/.config/nvim/init.lua<CR>
 
     nmap <leader>qq :qa<CR>
 
@@ -86,6 +87,8 @@ if vim.g.vscode == nil then
 
     ]])
 else
+	noremap("n", "<tab>", "<Cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>")
+	noremap("n", "<s-tab>", "<Cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>")
 	vim.cmd([[
 
     nnoremap <leader>ff <Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>
