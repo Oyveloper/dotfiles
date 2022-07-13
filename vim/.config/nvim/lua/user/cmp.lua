@@ -44,6 +44,8 @@ local kind_icons = {
 	TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+--
+
 
 cmp.setup({
 	snippet = {
@@ -62,7 +64,7 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<C-k>"] = cmp.mapping({
+		["<C-p>"] = cmp.mapping({
 			i = function()
 				if cmp.visible() then
 					require("notify")("visible")
