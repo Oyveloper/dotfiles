@@ -18,6 +18,7 @@ vim.opt.timeoutlen = 500
 
 if vim.g.vscode == nil then
 	-- Non-Vscode settings
+  vim.opt.termguicolors = true
 	vim.opt.expandtab = true
 	vim.opt.wrap = false
 	vim.opt.smartcase = true
@@ -27,7 +28,8 @@ if vim.g.vscode == nil then
 	vim.opt.incsearch = true
 
 	vim.opt.background = "dark"
-	vim.cmd("colorscheme onedark")
+  -- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+  vim.cmd[[colorscheme darkplus]]
 else
 	-- Vscode settings
 	vim.cmd([[

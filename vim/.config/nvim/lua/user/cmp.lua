@@ -64,26 +64,6 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<C-p>"] = cmp.mapping({
-			i = function()
-				if cmp.visible() then
-					require("notify")("visible")
-					cmp.abort()
-				else
-					require("notify")("not visible")
-					cmp.complete()
-				end
-			end,
-			c = function()
-				if cmp.visible() then
-					require("notify")("visible")
-					cmp.close()
-				else
-					require("notify")("not visible")
-					cmp.complete()
-				end
-			end,
-		}),
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = true }),

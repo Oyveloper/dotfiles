@@ -87,6 +87,13 @@ return packer.startup(function(use)
 		use("hrsh7th/cmp-nvim-lsp")
 		use("lukas-reineke/lsp-format.nvim")
     use("rcarriga/nvim-notify")
+    use {
+    'ojroques/nvim-lspfuzzy',
+    requires = {
+        {'junegunn/fzf'},
+        {'junegunn/fzf.vim'},  -- to enable preview (optional)
+      },
+    }
 
 		-- snippets
 		use("L3MON4D3/LuaSnip") --snippet engine
@@ -122,6 +129,19 @@ return packer.startup(function(use)
 		use("p00f/nvim-ts-rainbow")
 		use("windwp/nvim-ts-autotag")
 
+    -- Lua
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require("todo-comments").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
+
 		-- Git
 		use("lewis6991/gitsigns.nvim")
 		use("kdheepak/lazygit.vim")
@@ -132,6 +152,15 @@ return packer.startup(function(use)
 		use("gko/vim-coloresque")
 
 		use({ "stevearc/dressing.nvim" })
+
+
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin"
+    })
+
+    -- feline 
+    use 'feline-nvim/feline.nvim'
 	end
 
 	-- Automatically set up your configuration after cloning packer.nvim

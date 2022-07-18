@@ -1,4 +1,5 @@
 local M = {}
+require('lspfuzzy').setup {}
 
 -- TODO: backfill this to template
 M.setup = function()

@@ -41,9 +41,12 @@ if vim.g.vscode == nil then
 	-- finding references
 	remap("n", "gr", ":Telescope lsp_references<CR>")
 	remap("n", "<leader>gg", ":LazyGit<CR>")
-
+  remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
 	remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
+
+  remap("n", "<leader>tt", ":TodoQuickFix<CR>")
 	vim.cmd([[
+
 
     nmap <leader>bn :BufferLineCycleNext<CR>
     nmap <leader>bp :BufferLineCyclePrev<CR>
