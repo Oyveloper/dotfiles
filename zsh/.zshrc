@@ -199,3 +199,4 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 alias k="kubectl"
 source <(kubectl completion zsh)
+export XDG_CONFIG_HOME="$HOME/.config"

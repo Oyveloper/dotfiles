@@ -61,3 +61,9 @@ local python = Terminal:new({ cmd = "python", hidden = true, direction = "float"
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+local k9s = Terminal:new({cmd = "k9s", hidden = true, direction = "float"})
+
+function _K9S_TOGGLE()
+  k9s:toggle()
+end

@@ -1,0 +1,25 @@
+plugin:
+  # Sends logs over to jq for processing. This leverages kubectl plugin kubectl-jq.
+  jqlogs:
+    shortCut: Ctrl-J
+    confirm: false
+    description: "Logs (jq)"
+    scopes:
+    - pods
+    command: /usr/local/bin/kubectl-jq
+    background: false
+    args:
+    - $NAME
+    - $NAMESPACE
+    - $CONTEXT
+  pinologs:
+    shortCut: Shift-L
+    confirm: false
+    description: "Logs (pino)"
+    scopes:
+      - po
+    command: sh
+    background: false
+    args:
+      - -c
+      - "kubectl logs $NAME -n $NAMESPACE --context $CONTEXT | jq "
