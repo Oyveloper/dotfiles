@@ -1,18 +1,15 @@
 require("lsp-format").setup({
-  exclude = {"sqls"}
+  exclude = {"sqls"},
+  sync = true
 })
 
-local prettier = {
-	formatCommand = [[prettier --stdin-filepath ${INPUT} ${--tab-width:tab_width}]],
-	formatStdin = true,
-}
-require("lspconfig").efm.setup({
-	on_attach = require("lsp-format").on_attach,
-	init_options = { documentFormatting = true },
-	settings = {
-		languages = {
-			typescript = { prettier },
-			yaml = { prettier },
-		},
-	},
-})
+-- require("lspconfig").efm.setup({
+-- 	on_attach = require("lsp-format").on_attach,
+-- 	init_options = { documentFormatting = false },
+-- 	settings = {
+-- 		languages = {
+-- 			typescript = { prettier },
+-- 			yaml = { prettier },
+-- 		},
+-- 	},
+-- })
