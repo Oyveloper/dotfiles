@@ -96,7 +96,7 @@ _G.packer_plugins = {
   },
   catppuccin = {
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/catppuccin",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
@@ -141,7 +141,7 @@ _G.packer_plugins = {
   },
   ["feline.nvim"] = {
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/feline.nvim",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
   ["friendly-snippets"] = {
@@ -151,12 +151,12 @@ _G.packer_plugins = {
   },
   fzf = {
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["gitsigns.nvim"] = {
@@ -199,10 +199,20 @@ _G.packer_plugins = {
     path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
+  },
+  ["nord-vim"] = {
+    loaded = true,
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nord-vim",
+    url = "https://github.com/arcticicestudio/nord-vim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -239,7 +249,7 @@ _G.packer_plugins = {
   },
   ["nvim-lspfuzzy"] = {
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/nvim-lspfuzzy",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nvim-lspfuzzy",
     url = "https://github.com/ojroques/nvim-lspfuzzy"
   },
   ["nvim-notify"] = {
@@ -261,6 +271,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
@@ -320,7 +335,7 @@ _G.packer_plugins = {
   ["todo-comments.nvim"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
     loaded = true,
-    path = "/Users/oyvindmonsen/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    path = "/Users/oyvind/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
