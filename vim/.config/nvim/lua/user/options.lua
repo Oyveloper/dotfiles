@@ -17,19 +17,19 @@ vim.opt.expandtab = true
 vim.opt.timeoutlen = 500
 
 if vim.g.vscode == nil then
-	-- Non-Vscode settings
+  -- Non-Vscode settings
   vim.opt.termguicolors = true
-	vim.opt.expandtab = true
-	vim.opt.wrap = false
-	vim.opt.smartcase = true
-	vim.opt.swapfile = false
-	vim.opt.backup = false
-	vim.opt.undodir = "~/.vim/undodir"
-	vim.opt.incsearch = true
+  vim.opt.expandtab = true
+  vim.opt.wrap = false
+  vim.opt.smartcase = true
+  vim.opt.swapfile = false
+  vim.opt.backup = false
+  vim.opt.undodir = "~/.vim/undodir"
+  vim.opt.incsearch = true
 
-	vim.opt.background = "dark"
+  vim.opt.background = "dark"
   -- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-  vim.cmd[[colorscheme darkplus]]
+  vim.cmd [[colorscheme darkplus]]
 else
   -- Vscode settings
   vim.cmd([[
