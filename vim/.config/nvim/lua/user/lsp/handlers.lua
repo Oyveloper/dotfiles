@@ -1,5 +1,5 @@
 local M = {}
-require('lspfuzzy').setup {}
+require("lspfuzzy").setup({})
 
 -- TODO: backfill this to template
 M.setup = function()
@@ -57,8 +57,8 @@ end
 
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>zz", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>zz", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -81,13 +81,19 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name ~= "sqls" then 
-    require("lsp-format").on_attach(client)
-  end
+	if client.name ~= "sqls" then
+		-- require("lsp-format").on_attach(client)
+	end
 
 	-- vim.notify(client.name .. " starting...")
 	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" then
+		client.server_capabilities.document_formatting = false
+	end
+	if client.name == "volar" then
+		client.server_capabilities.document_formatting = false
+	end
+	if client.name == "eslint" then
 		client.server_capabilities.document_formatting = false
 	end
 

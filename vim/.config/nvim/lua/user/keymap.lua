@@ -41,10 +41,10 @@ if vim.g.vscode == nil then
 	-- finding references
 	remap("n", "gr", ":Telescope lsp_references<CR>")
 	remap("n", "<leader>gg", ":LazyGit<CR>")
-  remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
+	remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
 	remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
 
-  remap("n", "<leader>tt", ":TodoQuickFix<CR>")
+	remap("n", "<leader>tt", ":TodoQuickFix<CR>")
 	vim.cmd([[
 
 
@@ -54,7 +54,8 @@ if vim.g.vscode == nil then
     nmap <tab> :BufferLineCycleNext<CR>
     nmap <S-tab> :BufferLineCyclePrev<CR>
 
-    nmap <leader>bk :bdelete<CR>
+    nmap <leader>bk :b#<CR>:bd#<CR>
+    nnoremap <leader>bo :%bd<CR>:e#<CR>:bd#<CR>
     nmap <leader>bb :buffers<CR>
 
     nmap <leader>pi :PlugInstall<CR>
