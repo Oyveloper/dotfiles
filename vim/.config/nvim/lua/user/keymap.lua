@@ -7,11 +7,11 @@ local noremap_opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 local function remap(mode, from, to)
-  keymap(mode, from, to, opts)
+	keymap(mode, from, to, opts)
 end
 
 local function noremap(mode, from, to)
-  keymap(mode, from, to, noremap_opts)
+	keymap(mode, from, to, noremap_opts)
 end
 
 remap("", "<Space>", "<Nop>")
@@ -34,28 +34,30 @@ remap("n", "<leader>w", "<C-w>")
 -- files
 --
 if vim.g.vscode == nil then
-  -- Telescope
-  remap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>")
-  remap("n", "<leader>ft", ":Telescope live_grep<CR>")
-  noremap("n", "<leader>fif", ":Telescope current_buffer_fuzzy_find<CR>")
-  noremap("n", "<leader>fk", ":Telescope keymaps<CR>")
-  noremap("n", "<leader>fb", ":Telescope buffers<CR>")
-  noremap("n", "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<CR>")
-  noremap("n", "<leader>fd", ":Telescope diagnostics<CR>")
-  noremap("n", "<leader>fc", ":Telescope commands<CR>")
-  noremap("n", "<leader>fp", ":Telescope projects<CR>")
-  noremap("n", "<leader>T", ":Telescope<CR>")
+	-- Telescope
+	remap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>")
+	remap("n", "<leader>ft", ":Telescope live_grep<CR>")
+	noremap("n", "<leader>fif", ":Telescope current_buffer_fuzzy_find<CR>")
+	noremap("n", "<leader>fk", ":Telescope keymaps<CR>")
+	noremap("n", "<leader>fb", ":Telescope buffers<CR>")
+	noremap("n", "<leader>fs", ":Telescope lsp_dynamic_workspace_symbols<CR>")
+	noremap("n", "<leader>fd", ":Telescope diagnostics<CR>")
+	noremap("n", "<leader>fc", ":Telescope commands<CR>")
+	noremap("n", "<leader>fp", ":Telescope projects<CR>")
+	noremap("n", "<leader>T", ":Telescope<CR>")
 
-  remap("n", "<leader>e", ":NvimTreeToggle<CR>:NvimTreeRefresh<CR>")
+	remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/dotfiles/vim/.config/nvim/<CR>")
 
-  -- finding references
-  remap("n", "gr", ":Telescope lsp_references theme=cursor<CR>")
-  remap("n", "<leader>gg", ":LazyGit<CR>")
-  remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
-  remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
+	remap("n", "<leader>e", ":NvimTreeToggle<CR>:NvimTreeRefresh<CR>")
 
-  remap("n", "<leader>tt", ":TodoQuickFix<CR>")
-  vim.cmd([[
+	-- finding references
+	remap("n", "gr", ":Telescope lsp_references theme=cursor<CR>")
+	remap("n", "<leader>gg", ":LazyGit<CR>")
+	remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
+	remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
+
+	remap("n", "<leader>tt", ":TodoQuickFix<CR>")
+	vim.cmd([[
 
 
     nmap <leader>bn :BufferLineCycleNext<CR>
@@ -64,7 +66,7 @@ if vim.g.vscode == nil then
     nmap <tab> :BufferLineCycleNext<CR>
     nmap <S-tab> :BufferLineCyclePrev<CR>
 
-    nmap <leader>bk :b#<CR>:bd#<CR>
+    nmap <leader>bk :Bdelete<CR>
     nnoremap <leader>bo :%bd<CR>:e#<CR>:bd#<CR>
     nmap <leader>bb :buffers<CR>
 
@@ -101,9 +103,9 @@ if vim.g.vscode == nil then
 
     ]])
 else
-  noremap("n", "<tab>", "<Cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>")
-  noremap("n", "<s-tab>", "<Cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>")
-  vim.cmd([[
+	noremap("n", "<tab>", "<Cmd>call VSCodeNotify('workbench.action.nextEditorInGroup')<CR>")
+	noremap("n", "<s-tab>", "<Cmd>call VSCodeNotify('workbench.action.previousEditorInGroup')<CR>")
+	vim.cmd([[
 
     nnoremap <leader>ff <Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>
     nnoremap gs <Cmd>call VSCodeNotify('editor.action.revealDefinitionAside')<CR>
@@ -114,6 +116,6 @@ else
     nnoremap <leader>wH <Cmd>call VSCodeNotify('workbench.action.moveEditorToPreviousGroup')<CR>
   ]])
 
-  remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'lazygit')<CR>")
-  remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
+	remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'lazygit')<CR>")
+	remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 end

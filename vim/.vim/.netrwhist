@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/oyvind/dotfiles/vim/.config/nvim/lua/user'
+let g:netrw_dirhist_1='/Users/oyvind/dotfiles/vim/.config/nvim/lua'
+let g:netrw_dirhist_0='/Users/oyvind/dotfiles/vim/.config/nvim'
+let g:netrw_dirhist_9='/Users/oyvind/dotfiles/vim/.config'
+let g:netrw_dirhist_8='/Users/oyvind/dotfiles/vim'
+let g:netrw_dirhist_7='/Users/oyvind/dotfiles'
+let g:netrw_dirhist_6='/Users/oyvind/dotfiles/vim/.config/nvim/lua/user'
+let g:netrw_dirhist_5='/Users/oyvind/dotfiles/vim/.config/nvim/lua'
+let g:netrw_dirhist_4='/Users/oyvind/dotfiles/vim/.config/nvim'
+let g:netrw_dirhist_3='/Users/oyvind/dotfiles/vim/.config'
