@@ -4,6 +4,7 @@ require("user.autocommands")
 require("user.autopairs")
 require("user.keymap")
 require("user.options")
+require("user.switch")
 if vim.g.vscode ~= nil then
 	-- Things required in vscode
 	require("user.vscode")
@@ -14,7 +15,6 @@ else
 	require("user.telescope")
 	require("user.treesitter")
 	require("user.nvimtree")
-	require("user.bufferline")
 	-- lua require ('user.whichkey')
 	require("user.impatient")
 	require("user.alpha")
@@ -24,7 +24,10 @@ else
 	require("user.dressing")
 	require("user.catppuccin")
 	-- require("user.feline")
+	require("user.vscode-theme")
 	require("user.lualine")
 	require("user.colorizer")
 	require("user.gitsigns")
+	require("user.bufferline")
+	require("user.cursorline")
 end

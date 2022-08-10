@@ -30,7 +30,7 @@ if vim.g.vscode == nil then
 	vim.opt.timeoutlen = 400
 
 	-- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-	vim.cmd([[colorscheme gruvbox-material]])
+	vim.cmd([[colorscheme vscode]])
 
 	vim.g.highlighturl_enabled = true
 else

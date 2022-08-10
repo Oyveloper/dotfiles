@@ -16,7 +16,7 @@ M.setup = function()
 
 	local config = {
 		-- disable virtual text
-		virtual_text = false,
+		virtual_text = true,
 		-- show signs
 		signs = {
 			active = signs,
@@ -25,7 +25,7 @@ M.setup = function()
 		underline = true,
 		severity_sort = true,
 		float = {
-			focusable = false,
+			focusable = true,
 			style = "minimal",
 			border = "rounded",
 			source = "always",
@@ -94,6 +94,10 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "sumneko_lua" then
 		client.server_capabilities.document_formatting = false
+	end
+
+	if client.server_capabilities.document_formatting then
+		require("lsp-format").on_attach(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)

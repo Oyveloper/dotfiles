@@ -31,6 +31,8 @@ remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>")
 remap("v", "p", '"_dP')
 remap("n", "<leader>w", "<C-w>")
 
+noremap("n", "<C-_>", ":Switch<CR>")
+
 -- files
 --
 if vim.g.vscode == nil then
@@ -45,6 +47,7 @@ if vim.g.vscode == nil then
 	noremap("n", "<leader>fc", ":Telescope commands<CR>")
 	noremap("n", "<leader>fp", ":Telescope projects<CR>")
 	noremap("n", "<leader>T", ":Telescope<CR>")
+	remap("n", "<leader>wf", ":lua require('nvim-window').pick()<CR>")
 
 	remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/dotfiles/vim/.config/nvim/<CR>")
 
@@ -53,6 +56,7 @@ if vim.g.vscode == nil then
 	-- finding references
 	remap("n", "gr", ":Telescope lsp_references theme=cursor<CR>")
 	remap("n", "<leader>gg", ":LazyGit<CR>")
+	noremap("n", "<leader>gb", ":Gitsigns blame_line<CR>")
 	remap("n", "<leader>tk", ":lua _K9S_TOGGLE()<CR>")
 	remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
 
@@ -69,6 +73,7 @@ if vim.g.vscode == nil then
     nmap <leader>bk :Bdelete<CR>
     nnoremap <leader>bo :%bd<CR>:e#<CR>:bd#<CR>
     nmap <leader>bb :buffers<CR>
+    nnoremap <leader>bl :b#<CR>
 
     nmap <leader>pi :PlugInstall<CR>
     nmap <leader>pu :UpdateRemotePlugins<CR>

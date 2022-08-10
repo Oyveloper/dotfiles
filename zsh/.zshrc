@@ -172,6 +172,7 @@ export PATH=$HOME/.config/rofi/bin:$PATH
 alias rvim='sudo -E nvim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${M2_HOME}/bin:$PATH"
+export GOPATH=$HOME/go
 export PATH="${GOPATH}/:$PATH"
 
 export EDITOR=nvim

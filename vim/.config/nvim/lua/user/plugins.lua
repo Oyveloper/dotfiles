@@ -45,6 +45,7 @@ return packer.startup(function(use)
 
 	use("famiu/nvim-reload")
 	use("tpope/vim-surround")
+	use("AndrewRadev/switch.vim")
 	if vim.g.vscode ~= nil then
 		-- Things required in vscode
 
@@ -88,6 +89,9 @@ return packer.startup(function(use)
 		use("sainnhe/gruvbox-material")
 		use("ntk148v/vim-horizon")
 		use("NLKNguyen/papercolor-theme")
+		use({
+			"Mofiqul/vscode.nvim",
+		})
 
 		-- cmp plugins
 		use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -155,11 +159,37 @@ return packer.startup(function(use)
 			end,
 		})
 
+		use({
+			"aserowy/tmux.nvim",
+			config = function()
+				require("tmux").setup({
+					-- overwrite default configuration
+					-- here, e.g. to enable default bindings
+					copy_sync = {
+						-- enables copy sync and overwrites all register actions to
+						-- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
+						enable = true,
+					},
+					navigation = {
+						-- enables default keybindings (C-hjkl) for normal mode
+						enable_default_keybindings = false,
+						cycle_navigation = true,
+					},
+					resize = {
+						-- enables default keybindings (A-hjkl) for normal mode
+						enable_default_keybindings = false,
+					},
+				})
+			end,
+		})
+
 		-- Git
 		use("lewis6991/gitsigns.nvim")
 		use("kdheepak/lazygit.vim")
 
 		use("easymotion/vim-easymotion")
+
+		use("https://gitlab.com/yorickpeterse/nvim-window.git")
 
 		-- Highlight colors
 		use("norcalli/nvim-colorizer.lua")
@@ -171,14 +201,16 @@ return packer.startup(function(use)
 			as = "catppuccin",
 		})
 
+		use("yamatsum/nvim-cursorline")
+
 		-- feline
 		use("feline-nvim/feline.nvim")
 
-		-- scrolling
+		-- Firevim
 		use({
-			"declancm/cinnamon.nvim",
-			config = function()
-				require("cinnamon").setup()
+			"glacambre/firenvim",
+			run = function()
+				vim.fn["firenvim#install"](0)
 			end,
 		})
 	end
