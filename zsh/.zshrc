@@ -1,5 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=false
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -86,15 +89,12 @@ DISABLE_MAGIC_FUNCTIONS=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  zsh-nvm
+  evalcache
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	autojump
-  vi-mode
-  nvm
-	#autoenv
-	#docker
-	#python
 	themes
 )
 
@@ -151,24 +151,6 @@ alias pbpaste='xclip -selection clipboard -o'
 #export PATH="${M2_HOME}/bin:$PATH"
 export PATH=$HOME/.config/rofi/bin:$PATH
 
-
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-#export JAVA_HOME=/Users/oyvind/Library/Java/JavaVirtualMachines/corretto-11.0.10/Contents/Home
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-#autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /usr/local/bin/terraform terraform
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-#export NVM_DIR="$HOME/.nvm"
-#  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
 alias rvim='sudo -E nvim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${M2_HOME}/bin:$PATH"
@@ -182,7 +164,6 @@ export EDITOR=nvim
 alias nvskhd="nvim ~/.config/skhd/skhdrc"
 alias nvy="nvim ~/.config/yabai/yabairc"
 alias nvzh="nvim ~/.zshrc"
-alias nvd="nvm use default"
 alias sc="source ~/.zshrc"
 alias nvv="nvim ~/.config/nvim/init.vim"
 alias lg="lazygit"
@@ -194,9 +175,6 @@ alias tma="tmux a"
 
 eval "$(starship init zsh)"
 
-export PATH="$PATH:$(go env GOPATH)/bin"
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 alias k="kubectl"
 source <(kubectl completion zsh)

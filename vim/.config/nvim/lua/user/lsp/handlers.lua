@@ -1,7 +1,21 @@
 local M = {}
 require("lspfuzzy").setup({})
 
--- TODO: backfill this to template
+local formatting_clients = {
+	"wgsl_analyzer",
+	"gopls",
+	"rust-analyzer",
+}
+
+local function should_format(client)
+	for _, value in ipairs(formatting_clients) do
+		if value == client.name then
+			return true
+		end
+	end
+	return false
+end
+
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -81,13 +95,17 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	-- vim.notify(client.name .. " starting...")
+	if should_format(client) then
+		require("lsp-format").on_attach(client)
+	else
+		client.server_capabilities.document_formatting = false
+	end
 	if client.name == "tsserver" then
 		client.server_capabilities.document_formatting = false
 	end
-	-- if client.name == "volar" then
-	-- 	-- client.server_capabilities.document_formatting = false
-	-- end
+	if client.name == "volar_api" or client.name == "volar_doc" then
+		client.server_capabilities.document_formatting = false
+	end
 	if client.name == "eslint" then
 		client.server_capabilities.document_formatting = false
 	end
@@ -111,6 +129,6 @@ if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
