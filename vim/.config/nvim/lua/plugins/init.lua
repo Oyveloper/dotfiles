@@ -94,7 +94,7 @@ return {
   --[[ use({ "hrsh7th/cmp-nvim-lsp" }) ]]
   --[[ use({ "hrsh7th/cmp-nvim-lsp-signature-help" }) ]]
   --[[ use({ "simrat39/rust-tools.nvim" }) ]]
-  { "kdarkhan/rust-tools.nvim", cond = vscodefun }, -- temporary fix for rust-tools errors
+  { "simrat39/rust-tools.nvim", cond = vscodefun }, -- temporary fix for rust-tools errors
   { "lukas-reineke/lsp-format.nvim", cond = vscodefun },
   { "rcarriga/nvim-notify", cond = vscodefun },
   {
@@ -157,7 +157,7 @@ return {
   },
   { "nvim-treesitter/nvim-treesitter-context", cond = vscodefun },
   { "JoosepAlviste/nvim-ts-context-commentstring", cond = vscodefun },
-  { "p00f/nvim-ts-rainbow", cond = vscodefun, lazy = false },
+  --{ "p00f/nvim-ts-rainbow", cond = vscodefun, lazy = false },
   { "windwp/nvim-ts-autotag", cond = vscodefun, lazy = false },
   { "nvim-treesitter/nvim-treesitter-textobjects", cond = vscodefun, lazy = false },
   { "nvim-telescope/telescope-file-browser.nvim", cond = vscodefun },
@@ -230,6 +230,14 @@ return {
   { "rcarriga/nvim-dap-ui", cond = vscodefun },
   { "theHamsta/nvim-dap-virtual-text", cond = vscodefun },
   { "ldelossa/nvim-dap-projects", cond = vscodefun },
+  {
+    "mfussenegger/nvim-dap-python",
+    cond = vscodefun,
+    opts = function()
+      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+      require("dap-python").test_runner = "pytest"
+    end,
+  },
 
   {
     "folke/trouble.nvim",
@@ -239,16 +247,6 @@ return {
         -- your optsuration comes here
         -- or leave it empty to  ,the default settings
         -- refer to the optsuration section below
-      })
-    end,
-    cond = vscodefun,
-  },
-  {
-    "folke/drop.nvim",
-    event = "VimEnter",
-    opts = function()
-      require("drop").setup({
-        theme = "stars",
       })
     end,
     cond = vscodefun,

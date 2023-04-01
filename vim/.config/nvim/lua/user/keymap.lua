@@ -149,10 +149,6 @@ else
 
   ]])
 
-  remap(
-    "n",
-    "<leader>gg",
-    "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'lazygit')<CR><Cmd> call VSCodeNotify('workbench.action.toggleMaximizedPanel')<CR>"
-  )
+  remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'close_lazygit')<CR>")
   remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 end

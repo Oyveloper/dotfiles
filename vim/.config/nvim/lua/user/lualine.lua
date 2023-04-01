@@ -3,6 +3,8 @@ local function lualineSetup()
   require("lualine").setup({
     options = {
       theme = theme_name,
+      component_separators = "|",
+      section_separators = { left = "", right = "" },
     },
     sections = {
       lualine_x = {

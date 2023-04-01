@@ -30,7 +30,7 @@ if vim.g.vscode == nil then
   vim.opt.incsearch = true
   vim.opt.timeoutlen = 400
 
-  vim.cmd([[colorscheme vscode]])
+  vim.cmd([[colorscheme carbonfox]])
   vim.opt.background = "dark"
 
   vim.g.highlighturl_enabled = true
