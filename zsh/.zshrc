@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=false
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=false
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -89,7 +89,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  zsh-nvm
+  # zsh-nvm
   evalcache
 	git
 	zsh-autosuggestions
@@ -172,6 +172,8 @@ alias lg="lazygit"
 alias tmn="tmux new"
 alias tmnn="tmux new -s"
 alias tma="tmux a"
+
+alias cat="bat"
 
 eval "$(starship init zsh)"
 

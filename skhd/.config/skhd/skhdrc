@@ -158,7 +158,7 @@ alt - r ; resize
 
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty -d ~
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west

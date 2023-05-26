@@ -45,12 +45,12 @@ vim.cmd([[
     nmap - '
 
 
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
     " Search
     nnoremap N Nzz
     nnoremap n nzz
 
-    vnoremap J :m '>+1<CR>gv=gv
-    vnoremap K :m '<-2<CR>gv=gv
 
     " Easymotion
     map <leader>ø <Plug>(easymotion-prefix)
@@ -87,7 +87,6 @@ if vim.g.vscode == nil then
   remap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>")
 
   --[[ remap("n", "<leader>tt", ":TodoQuickFix<CR>") ]]
-
   -- dapui
   remap("n", "<leader>dd", ":lua require('dapui').toggle()<CR>")
   remap("n", "<leader>db", ":DapToggleBreakpoint<CR>")
