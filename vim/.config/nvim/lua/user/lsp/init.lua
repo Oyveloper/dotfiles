@@ -26,7 +26,6 @@ lsp.ensure_installed({
   "tsserver",
   "eslint",
   "pyright",
-  "sumneko_lua",
   "rust_analyzer",
 })
 
@@ -49,7 +48,6 @@ lsp.set_preferences({
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-
   ["<C-k>"] = cmp.mapping.select_prev_item(),
   ["<C-j>"] = cmp.mapping.select_next_item(),
   ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -82,8 +80,8 @@ lsp.setup_nvim_cmp({
   sources = {
     { name = "path" },
     { name = "nvim_lsp", keyword_length = 1 },
-    { name = "buffer", keyword_length = 1 },
-    { name = "luasnip", keyword_length = 1 },
+    { name = "buffer",   keyword_length = 1 },
+    { name = "luasnip",  keyword_length = 1 },
   },
   formatting = {
     fields = { "menu", "abbr", "kind" },

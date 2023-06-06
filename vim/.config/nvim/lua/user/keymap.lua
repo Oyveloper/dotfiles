@@ -23,7 +23,9 @@ remap("n", "<C-h>", "<C-w>h")
 remap("n", "<C-j>", "<C-w>j")
 remap("n", "<C-k>", "<C-w>k")
 remap("n", "<C-l>", "<C-w>l")
+--
 -- remap("n", "<leader>w", "<C-w>") keymap("n", "<C-l>", "<C-w>l")
+
 remap("n", "<leader>i", ":e ~/.zshrc<CR>")
 remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>")
 
@@ -145,6 +147,7 @@ else
     nnoremap <leader>r <Cmd>call VSCodeNotify('editor.action.refactor')<CR>
     nnoremap <leader>pr <Cmd>call VSCodeNotify('workbench.action.debug.start')<CR>
     nnoremap <leader>r <Cmd>call VSCodeNotify('editor.action.refactor')<CR>
+
 
   ]])
 
