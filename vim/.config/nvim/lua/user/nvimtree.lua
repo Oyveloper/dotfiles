@@ -16,17 +16,29 @@ end
 --   end,
 -- })
 
--- local function on_attach(bufnr)
---   local api_status, api = pcall(require, "nvim-tree.api")
---   if not api_status then
---     return
---   end
+local function on_attach(bufnr)
+  local api_status, api = pcall(require, "nvim-tree.api")
+  if not api_status then
+    return
+  end
 
---   -- vim.api.nvim_set_keymap("n", "l", api.nvim_tree_callback("edit"), { silent = true, noremap = true })
--- end
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Toggle"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Toggle"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("Toggle"))
+  vim.keymap.set("n", "s", api.node.open.horizontal, opts("Toggle"))
+end
 
 nvim_tree.setup({
-  -- on_attach = on_attach,
+  on_attach = on_attach,
   renderer = {
     add_trailing = false,
     group_empty = false,
