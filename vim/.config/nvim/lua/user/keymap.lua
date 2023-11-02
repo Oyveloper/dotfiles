@@ -25,7 +25,6 @@ remap("n", "<C-k>", "<C-w>k")
 remap("n", "<C-l>", "<C-w>l")
 --
 -- remap("n", "<leader>w", "<C-w>") keymap("n", "<C-l>", "<C-w>l")
-
 remap("n", "<leader>i", ":e ~/.zshrc<CR>")
 --[[ remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>") ]]
 noremap("n", "<C-d>", "<C-d>zz")
