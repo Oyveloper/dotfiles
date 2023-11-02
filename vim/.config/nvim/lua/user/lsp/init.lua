@@ -9,7 +9,6 @@
 --[[ require("user.lsp.null-ls") ]]
 --[[ require("user.lsp.lsp-format") ]]
 --[[ require("user.lsp.settings.volar") ]]
-
 local lsp = require("lsp-zero")
 local lsp_format = require("lsp-format")
 require("lspfuzzy").setup({})
@@ -65,7 +64,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 --[[ 	["<C-y>"] = cmp.mapping.confirm({ select = true }), ]]
 --[[ 	["<C-Space>"] = cmp.mapping.complete(), ]]
 --[[ }) ]]
-
 -- disable completion with tab
 -- this helps with copilot setup
 cmp_mappings["<Tab>"] = nil

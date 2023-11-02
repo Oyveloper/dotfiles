@@ -27,8 +27,7 @@ remap("n", "<C-l>", "<C-w>l")
 -- remap("n", "<leader>w", "<C-w>") keymap("n", "<C-l>", "<C-w>l")
 
 remap("n", "<leader>i", ":e ~/.zshrc<CR>")
-remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>")
-
+--[[ remap("n", "<leader>ve", ":e ~/.config/nvim/init.lua<CR>") ]]
 noremap("n", "<C-d>", "<C-d>zz")
 noremap("n", "<C-u>", "<C-u>zz")
 
@@ -77,7 +76,7 @@ if vim.g.vscode == nil then
   noremap("n", "<leader>T", ":Telescope<CR>")
   remap("n", "<leader>wf", ":lua require('nvim-window').pick()<CR>")
 
-  remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/dotfiles/vim/.config/nvim/<CR>")
+  remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/.dotfiles/vim/.config/nvim/<CR>")
 
   remap("n", "<leader>e", ":NvimTreeToggle<CR>")
 

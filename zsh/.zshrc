@@ -141,7 +141,7 @@ export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/home/oyvind/idea-IU-2020.6397.94/bin"
 export PATH="$PATH:/home/oyvind/clion-2020.3/bin"
 
-alias python=python3
+#alias python=python3
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
