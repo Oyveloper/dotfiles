@@ -55,7 +55,7 @@ vim.cmd([[
 
 
     " Easymotion
-    map <leader>ø <Plug>(easymotion-prefix)
+    map ø <Plug>(easymotion-prefix)s
 
 ]])
 

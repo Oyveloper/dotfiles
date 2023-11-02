@@ -8,17 +8,17 @@ return {
     lazy = false,
   },
   { "AndrewRadev/switch.vim",              lazy = false },
-  {
-    "asvetliakov/vim-easymotion",
-    cond = function()
-      return not vscodefun()
-    end,
-    name = "vsc-easymotion",
-    lazy = false,
-  },
+  -- {
+  --   "asvetliakov/vim-easymotion",
+  --   cond = function()
+  --     return not vscodefun()
+  --   end,
+  --   name = "vsc-easymotion",
+  --   lazy = false,
+  -- },
   {
     "easymotion/vim-easymotion",
-    cond = vscodefun,
+    -- cond = vscodefun,
     lazy = false,
   },
   --Things not required in Vscode
@@ -260,5 +260,10 @@ return {
       })
     end,
     cond = vscodefun,
+  },
+
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   },
 }

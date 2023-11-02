@@ -3,5 +3,5 @@ if vim.g.vscode == nil then
   autocmd VimEnter * WhichKey<CR>
 ]] )
 
-  vim.cmd([[autocmd BufWritePre, FileWritePre <buffer> lua vim.lsp.buf.format()]])
+  -- vim.cmd([[autocmd BufWritePre, FileWritePre <buffer> lua vim.lsp.buf.format()]])
 end
