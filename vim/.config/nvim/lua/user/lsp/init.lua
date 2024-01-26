@@ -1,15 +1,4 @@
---[[ local status_ok, _ = pcall(require, "lspconfig") ]]
---[[ if not status_ok then ]]
---[[ 	return ]]
---[[ end ]]
---[[]]
---[[ require("user.lsp.lsp-installer") ]]
---[[ require("user.lsp.handlers").setup() ]]
---[[ require("user.lsp.signature") ]]
---[[ require("user.lsp.null-ls") ]]
---[[ require("user.lsp.lsp-format") ]]
---[[ require("user.lsp.settings.volar") ]]
-local lsp = require("lsp-zero")
+local lsp_zero = require("lsp-zero")
 local lsp_format = require("lsp-format")
 require("lspfuzzy").setup({})
 lsp_format.setup({
@@ -17,18 +6,18 @@ lsp_format.setup({
   sync = true,
 })
 
-require("user.lsp.null-ls")
+-- require("user.lsp.null-ls")
 
-lsp.preset("recommended")
+lsp_zero.preset("recommended")
 
-lsp.ensure_installed({
+lsp_zero.ensure_installed({
   "tsserver",
   "eslint",
   "pyright",
   "rust_analyzer",
 })
 
-lsp.set_preferences({
+lsp_zero.set_preferences({
   suggest_lsp_servers = true,
   setup_servers_on_start = true,
   set_lsp_keymaps = true,
@@ -36,17 +25,18 @@ lsp.set_preferences({
   cmp_capabilities = true,
   manage_nvim_cmp = true,
   call_servers = "local",
-  sign_icons = {
-    error = "✘",
-    warn = "▲",
-    hint = "⚑",
-    info = "",
-  },
+})
+
+lsp_zero.set_sign_icons({
+  error = "✘",
+  warn = "▲",
+  hint = "⚑",
+  info = "",
 })
 
 local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
+-- local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_mappings = lsp_zero.defaults.cmp_mappings({
   ["<C-k>"] = cmp.mapping.select_prev_item(),
   ["<C-j>"] = cmp.mapping.select_next_item(),
   ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -69,7 +59,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings["<Tab>"] = nil
 cmp_mappings["<S-Tab>"] = nil
 
-lsp.setup_nvim_cmp({
+cmp.setup({
   mapping = cmp_mappings,
   window = {
     completion = cmp.config.window.bordered(),
@@ -88,7 +78,7 @@ lsp.setup_nvim_cmp({
         nvim_lsp = "λ",
         vsnip = "⋗",
         buffer = "Ω",
-        path = "🖫",
+        path = "",
       }
       item.menu = menu_icon[entry.source.name]
       return item
@@ -96,11 +86,11 @@ lsp.setup_nvim_cmp({
   },
 })
 
-vim.diagnostic.config({
-  virtual_text = true,
-})
+-- vim.diagnostic.config({
+--   virtual_text = true,
+-- })
 
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   lsp_format.on_attach(client, bufnr)
@@ -132,7 +122,7 @@ lsp.on_attach(function(client, bufnr)
   -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = false})' ]])
 end)
 
-lsp.configure("pyright", {
+lsp_zero.configure("pyright", {
   settings = {
     python = {
       analysis = {
@@ -146,7 +136,7 @@ local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
-local rust_lsp = lsp.build_options("rust_analyzer", {})
+local rust_lsp = lsp_zero.build_options("rust_analyzer", {})
 require("rust-tools").setup({
   server = rust_lsp,
   --[[ dap = { ]]
@@ -154,4 +144,4 @@ require("rust-tools").setup({
   --[[ }, ]]
 })
 
-lsp.setup()
+lsp_zero.setup()

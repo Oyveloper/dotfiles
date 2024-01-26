@@ -26,8 +26,8 @@ else
   require("user.vscode-theme")
   require("user.lualine")
   require("user.colorizer")
-  require("user.gitsigns")
   require("user.bufferline")
   require("user.cursorline")
   require("user.dap")
+  require("user.gitsigns")
 end

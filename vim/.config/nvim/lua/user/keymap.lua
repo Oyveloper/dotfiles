@@ -75,6 +75,8 @@ if vim.g.vscode == nil then
   noremap("n", "<leader>T", ":Telescope<CR>")
   remap("n", "<leader>wf", ":lua require('nvim-window').pick()<CR>")
 
+  remap("n", "<leader>ll", ":Lazy<CR>")
+
   remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/.dotfiles/vim/.config/nvim/<CR>")
 
   remap("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -135,7 +137,7 @@ else
     nnoremap <leader>op <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
     nnoremap gn <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
     nnoremap gp <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
-    nnoremap <leader>e  <Cmd>call VSCodeNotify('workbench.files.action.focusFilesExplorer')<CR>
+    nnoremap <leader>e  <Cmd>call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')<CR>
 
     nnoremap <leader>wL <Cmd>call VSCodeNotify('workbench.action.moveEditorToNextGroup')<CR>
     nnoremap <leader>wH <Cmd>call VSCodeNotify('workbench.action.moveEditorToPreviousGroup')<CR>
@@ -145,10 +147,11 @@ else
     nnoremap <leader>r <Cmd>call VSCodeNotify('editor.action.refactor')<CR>
     nnoremap <leader>pr <Cmd>call VSCodeNotify('workbench.action.debug.start')<CR>
     nnoremap <leader>r <Cmd>call VSCodeNotify('editor.action.refactor')<CR>
+    nnoremap <leader>wo <Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR><Cmd>call VSCodeNotify('workbench.action.closeEditorsInOtherGroups')<CR>
 
 
   ]])
 
-  remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('workbench.action.tasks.runTask', 'close_lazygit')<CR>")
+  remap("n", "<leader>gg", "<Cmd>call VSCodeNotify('lazygit.openLazygit')<CR>")
   remap("n", "<leader>rn", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
 end

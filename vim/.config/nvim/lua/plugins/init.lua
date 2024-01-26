@@ -106,6 +106,12 @@ return {
 
   -- LSP
   --
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     diagnostics = { virtual_text = { prefix = "icons" } },
+  --   },
+  -- },
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
@@ -201,7 +207,14 @@ return {
   --[[ }, ]]
 
   -- Git
-  { "lewis6991/gitsigns.nvim",     cond = vscodefun },
+  {
+    "lewis6991/gitsigns.nvim",
+    cond = vscodefun,
+    opts = {
+      -- icons
+      signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+    },
+  },
   { "kdheepak/lazygit.vim",        cond = vscodefun, lazy = false },
 
   --{ "yorickpeterse/nvim-window.git", cond = vscodefun },
