@@ -29,20 +29,10 @@ cd polybar
 ./build.sh
 cd
 
-# Chemacs for multiple emacs configs concurrently
-git clone https://github.com/plexus/chemacs.git
-cd chemacs
-./install.sh
-cd 
-
-# Installing doom emacs
-git clone https://github.com/hlissner/doom-emacs .emacs.doom.d
-.emacs.doom.d/bin/doom install
 
 
-
-# Changing the default shell and insstalling oh-my-zsh
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+# # Changing the default shell and insstalling oh-my-zsh
+# chsh -s $(which zsh)
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"

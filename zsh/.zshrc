@@ -90,10 +90,10 @@ DISABLE_MAGIC_FUNCTIONS=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   # zsh-nvm
-  evalcache
+  # evalcache
 	git
 	zsh-autosuggestions
-	zsh-syntax-highlighting
+	# zsh-syntax-highlighting
 	autojump
 	themes
 )
@@ -177,9 +177,10 @@ alias tma="tmux a"
 eval "$(starship init zsh)"
 
 
-alias k="kubectl"
-source <(kubectl completion zsh)
+#alias k="kubectl"
+#source <(kubectl completion zsh)
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Neovim config switcher
 #
+eval "$(~/.local/bin/mise activate zsh)"
