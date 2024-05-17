@@ -77,7 +77,7 @@ if vim.g.vscode == nil then
 
   remap("n", "<leader>ll", ":Lazy<CR>")
 
-  remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/.dotfiles/vim/.config/nvim/<CR>")
+  remap("n", "<leader>ve", ":Telescope find_files cwd=/$HOME/dotfiles/vim/.config/nvim/<CR>")
 
   remap("n", "<leader>e", ":NvimTreeToggle<CR>")
 
@@ -148,6 +148,9 @@ else
     nnoremap <leader>pr <Cmd>call VSCodeNotify('workbench.action.debug.start')<CR>
     nnoremap <leader>r <Cmd>call VSCodeNotify('editor.action.refactor')<CR>
     nnoremap <leader>wo <Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR><Cmd>call VSCodeNotify('workbench.action.closeEditorsInOtherGroups')<CR>
+    nnoremap <leader>bk <Cmd>call VSCodeNotify('workbench.action.closeWindow')
+    nnoremap <leader>ve :e ~/.config/nvim/init.lua<CR>
+    nnoremap <leader>vk :e ~/.config/nvim/lua/user/keymap.lua<CR>
 
 
   ]])

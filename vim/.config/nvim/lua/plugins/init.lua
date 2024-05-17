@@ -25,9 +25,9 @@ return {
   --
 
   -- My plugins here
-  { "wbthomason/packer.nvim",              cond = vscodefun }, -- Have packer manage itself
+  { "wbthomason/packer.nvim",              cond = vscodefun },               -- Have packer manage itself
   { "nvim-lua/plenary.nvim",               cond = vscodefun, lazy = false }, --  ,lua functions  ,ny lots of plugins
-  { "nvim-lua/popup.nvim",                 cond = vscodefun }, -- An implementation of the Popup API from vim in Neovim
+  { "nvim-lua/popup.nvim",                 cond = vscodefun },               -- An implementation of the Popup API from vim in Neovim
   { "windwp/nvim-autopairs",               cond = vscodefun, lazy = false }, -- Autopairs, integrates with both cmp and treesitter
   { "tpope/vim-commentary",                lazy = false },
   { "kyazdani42/nvim-web-devicons",        cond = vscodefun, lazy = false },

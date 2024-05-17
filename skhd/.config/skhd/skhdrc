@@ -115,11 +115,11 @@ shift + alt - 0 : yabai -m space --balance
 # shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
 # focus monitor
-ctrl + alt - k  : yabai -m display --focus east
-ctrl + alt - j  : yabai -m display --focus west
+ctrl + alt - k  : yabai -m display --focus first #east
+ctrl + alt - j  : yabai -m display --focus last #west
 
-ctrl + alt + shift - k  : yabai -m window --display east; yabai -m space --focus east;
-ctrl + alt + shift - j  : yabai -m window --display west; yabai -m display --focus west
+ctrl + alt + shift - k  : yabai -m window --display first; yabai -m space --focus first;
+ctrl + alt + shift - j  : yabai -m window --display last; yabai -m display --focus last
 
 # Focus space 
 # ctrl + alt - l : yabai -m space --focus next
@@ -127,7 +127,7 @@ ctrl + alt + shift - j  : yabai -m window --display west; yabai -m display --foc
 
 # Restart
 alt + shift - r : yabai --restart-service
-ctrl + alt + shift - r : brew services restart skhd
+ctrl + alt + shift - r : skhd --restart-service
 
 # send window to monitor and follow focus
 # ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
@@ -158,7 +158,8 @@ alt - r ; resize
 
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+# alt - return : /Applications/kitty.app/Contents/MacOS/kitty ~
+alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2 ~
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
